@@ -1,0 +1,16 @@
+PODS:
+  - JZCalendarWeekView (0.7.1)
+
+DEPENDENCIES:
+  - JZCalendarWeekView
+
+SPEC REPOS:
+  trunk:
+    - JZCalendarWeekView
+
+SPEC CHECKSUMS:
+  JZCalendarWeekView: 586a429ab3fbeef4f98d648ea6b801f57c5495cc
+
+PODFILE CHECKSUM: 5c766c03838ed8332dc32d8e4b1bb7b7d4251e11
+
+COCOAPODS: 1.9.3

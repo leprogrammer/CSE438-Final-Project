@@ -1,0 +1,690 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02176772C786626D20D89FEAA08B206F /* JZCalendarWeekView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2F5863B5CC97F6B23FEC4C3601320 /* JZCalendarWeekView-dummy.m */; };
+		062F3EEF48017C6E73E814348BB772F6 /* WeakTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A11106D1569EB71F9F1CA036C46AAB5 /* WeakTimer.swift */; };
+		17DDB8B8CAC45C8ED55CBFE286CC7ED0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		1B204E64FAF4C4673EBB69EE46D43436 /* JZAllDayCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3FAE28D202CECF1B0FB8CDD8BFE0B8 /* JZAllDayCorner.swift */; };
+		1DBDEEEB9923EDFADF707BB3822CD2F2 /* JZColumnHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F856D11FEED1A2B440383DC3BB71A762 /* JZColumnHeader.swift */; };
+		20F794BF26C2BE45048D1CBDF8D9E63F /* JZGridLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF3775A5C3AECB269EA38E5523C91DB /* JZGridLine.swift */; };
+		30EDCF4F7C772B9995A8EE95CF195A0E /* JZBaseEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C059B01BB22312DAFEE24D13E41F3C /* JZBaseEvent.swift */; };
+		3A6D33EB076C5E2BA9B743C3A0E4F23F /* JZCurrentTimelineSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC36F5BBD22B91769ECF61FAB31A9BB /* JZCurrentTimelineSection.swift */; };
+		3E7748F0B2D6A8B8A5459526774B5108 /* JZCornerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8103313F52565EEA143605DAB154813 /* JZCornerHeader.swift */; };
+		41560EF36E298F44ED9B4C8FEFCEC0FE /* JZAllDayEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FAE9B9EDC34E0485FE4F2702DD000E /* JZAllDayEvent.swift */; };
+		418E7DD067CE4390BE712D12DAFB57B6 /* JZLongPressEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E230C1E8885A0B93E9D340C98F59921 /* JZLongPressEventCell.swift */; };
+		605E0A15DDB75838982948AAE8B49401 /* JZCalendarWeekView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 19E0B869AF6443C8D74D044AFC152A03 /* JZCalendarWeekView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		74A6B3136E020D93D249483285FEEE95 /* JZCurrentTimelinePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1309C749D392FB29C561A5417CF14 /* JZCurrentTimelinePage.swift */; };
+		765C39F1BAF6D14A8AA41A8F23118BC3 /* JZLongPressWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EC86A48971DFD1921E2CCC17B22FB2 /* JZLongPressWeekView.swift */; };
+		77B843D669B9F7B47FBA8F6D1AAB9FEB /* JZAllDayHeaderBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4484087AC22AF7379B0411C2BB446964 /* JZAllDayHeaderBackground.swift */; };
+		82E2B70B9F32E6E4A05596F725D4A953 /* JZColumnHeaderBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64309163611F56C345CA09B8A1A4BEB /* JZColumnHeaderBackground.swift */; };
+		91F35DFE304983FB00726929E6FD1E25 /* Pods-CSE438_FinalProject-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B0596CF0CB90958BDE2C7875225ED40D /* Pods-CSE438_FinalProject-dummy.m */; };
+		97587DA0A46EEA3356FB5000398A0810 /* JZWeekViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E6D7205BABEA1289B8209DD0D51957 /* JZWeekViewHelper.swift */; };
+		A599167047C15C72591F1132897162B2 /* JZRowHeaderBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8992A8FC54FD131917B2E2FCDD26603 /* JZRowHeaderBackground.swift */; };
+		B3D38A92D483F9A188DA4FE6F4DFA74F /* JZAllDayHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A220410EA217D1272EF26466992709B /* JZAllDayHeader.swift */; };
+		C2A7484E8F6CB39C9FF560C09AAB4446 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB1B1CB9A5BF271A7997D4F70B2082 /* Extensions.swift */; };
+		C7BAFF74FDC57E1E890BEF3DEEA74D68 /* JZCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C9537670601D022D964872902915A6 /* JZCollectionView.swift */; };
+		D2B0582AC43F46DB2B0181910E473C92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		D7C2D68C4BB8E7CB7BF81225D23FFD03 /* Pods-CSE438_FinalProject-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D892256A109C7F48F7D7301DF81F8F4 /* Pods-CSE438_FinalProject-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D81965932BCAD28B831B5491D8556EEF /* JZBaseWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B8A59ECF9545E0B39B16D274A1C7C /* JZBaseWeekView.swift */; };
+		DE0571E9AD45BBB36211DAA619B4DEBA /* JZWeekViewColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CA999F315DC2A4F8EC0C60284D60A /* JZWeekViewColors.swift */; };
+		F0F3837092954E990B0EC864895D3A77 /* JZRowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F143FB937791F2168E1FD1C32997302 /* JZRowHeader.swift */; };
+		F90E462CDBDB8CAFB58CAA171BB59CF8 /* JZWeekViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1804DB16E87C6B3BDF2927FF73C456 /* JZWeekViewFlowLayout.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B56996D4F1371AA250A031FFB1839CC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB69877BBE5461EEA507FA5FCF8314F0;
+			remoteInfo = JZCalendarWeekView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		07DAF6FCBD28DD47CAB50246E01CA03D /* Pods-CSE438_FinalProject-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CSE438_FinalProject-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0A220410EA217D1272EF26466992709B /* JZAllDayHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZAllDayHeader.swift; path = JZCalendarWeekView/ReusableViews/JZAllDayHeader.swift; sourceTree = "<group>"; };
+		0DF3775A5C3AECB269EA38E5523C91DB /* JZGridLine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZGridLine.swift; path = JZCalendarWeekView/ReusableViews/JZGridLine.swift; sourceTree = "<group>"; };
+		19E0B869AF6443C8D74D044AFC152A03 /* JZCalendarWeekView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JZCalendarWeekView-umbrella.h"; sourceTree = "<group>"; };
+		1AC36F5BBD22B91769ECF61FAB31A9BB /* JZCurrentTimelineSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZCurrentTimelineSection.swift; path = JZCalendarWeekView/ReusableViews/JZCurrentTimelineSection.swift; sourceTree = "<group>"; };
+		1AD1309C749D392FB29C561A5417CF14 /* JZCurrentTimelinePage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZCurrentTimelinePage.swift; path = JZCalendarWeekView/ReusableViews/JZCurrentTimelinePage.swift; sourceTree = "<group>"; };
+		1C3FAE28D202CECF1B0FB8CDD8BFE0B8 /* JZAllDayCorner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZAllDayCorner.swift; path = JZCalendarWeekView/ReusableViews/JZAllDayCorner.swift; sourceTree = "<group>"; };
+		20C9537670601D022D964872902915A6 /* JZCollectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZCollectionView.swift; path = JZCalendarWeekView/JZCollectionView.swift; sourceTree = "<group>"; };
+		2381A15E1CE61212A0CC5B66FF1444C7 /* JZCalendarWeekView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JZCalendarWeekView.release.xcconfig; sourceTree = "<group>"; };
+		2D892256A109C7F48F7D7301DF81F8F4 /* Pods-CSE438_FinalProject-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CSE438_FinalProject-umbrella.h"; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3E7A1ABA2FBAB4B3139799A734B5AD79 /* JZCalendarWeekView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JZCalendarWeekView.debug.xcconfig; sourceTree = "<group>"; };
+		4484087AC22AF7379B0411C2BB446964 /* JZAllDayHeaderBackground.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZAllDayHeaderBackground.swift; path = JZCalendarWeekView/ReusableViews/JZAllDayHeaderBackground.swift; sourceTree = "<group>"; };
+		462297AAAF88B6F1A0EE582D2AFD53D3 /* Pods_CSE438_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CSE438_FinalProject.framework; path = "Pods-CSE438_FinalProject.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		47CC592F4169F75164D66EA33FA8D847 /* Pods-CSE438_FinalProject.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CSE438_FinalProject.modulemap"; sourceTree = "<group>"; };
+		50FD7722D32A8156212C50BD2F5B7302 /* JZCalendarWeekView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JZCalendarWeekView.modulemap; sourceTree = "<group>"; };
+		5FC2F5863B5CC97F6B23FEC4C3601320 /* JZCalendarWeekView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JZCalendarWeekView-dummy.m"; sourceTree = "<group>"; };
+		63B0276D96AF993788420740647B87BF /* Pods-CSE438_FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CSE438_FinalProject.release.xcconfig"; sourceTree = "<group>"; };
+		674037D531CB5CDC6E72CAC0E7FAC4D6 /* JZCalendarWeekView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JZCalendarWeekView-prefix.pch"; sourceTree = "<group>"; };
+		6E230C1E8885A0B93E9D340C98F59921 /* JZLongPressEventCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZLongPressEventCell.swift; path = JZCalendarWeekView/JZLongPressEventCell.swift; sourceTree = "<group>"; };
+		82AD7E974EAADCD84C4DC4293C9ECBB0 /* Pods-CSE438_FinalProject-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CSE438_FinalProject-Info.plist"; sourceTree = "<group>"; };
+		8DBA40006B8CAD660601FE1C2E46EA67 /* Pods-CSE438_FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CSE438_FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
+		91C059B01BB22312DAFEE24D13E41F3C /* JZBaseEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZBaseEvent.swift; path = JZCalendarWeekView/JZBaseEvent.swift; sourceTree = "<group>"; };
+		9A11106D1569EB71F9F1CA036C46AAB5 /* WeakTimer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WeakTimer.swift; path = JZCalendarWeekView/Utils/WeakTimer.swift; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F143FB937791F2168E1FD1C32997302 /* JZRowHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZRowHeader.swift; path = JZCalendarWeekView/ReusableViews/JZRowHeader.swift; sourceTree = "<group>"; };
+		A0AD4B5954CC54FCCD1B128F8D174262 /* Pods-CSE438_FinalProject-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CSE438_FinalProject-frameworks.sh"; sourceTree = "<group>"; };
+		A8CB1B1CB9A5BF271A7997D4F70B2082 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = JZCalendarWeekView/Utils/Extensions.swift; sourceTree = "<group>"; };
+		A9FF1253C66918E01C164AB2F18ECF65 /* Pods-CSE438_FinalProject-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CSE438_FinalProject-acknowledgements.plist"; sourceTree = "<group>"; };
+		ADEABEC8344547052474CD1230DE9B8C /* JZCalendarWeekView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JZCalendarWeekView.framework; path = JZCalendarWeekView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0596CF0CB90958BDE2C7875225ED40D /* Pods-CSE438_FinalProject-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CSE438_FinalProject-dummy.m"; sourceTree = "<group>"; };
+		B84CA999F315DC2A4F8EC0C60284D60A /* JZWeekViewColors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZWeekViewColors.swift; path = JZCalendarWeekView/Utils/JZWeekViewColors.swift; sourceTree = "<group>"; };
+		C64309163611F56C345CA09B8A1A4BEB /* JZColumnHeaderBackground.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZColumnHeaderBackground.swift; path = JZCalendarWeekView/ReusableViews/JZColumnHeaderBackground.swift; sourceTree = "<group>"; };
+		E0EC86A48971DFD1921E2CCC17B22FB2 /* JZLongPressWeekView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZLongPressWeekView.swift; path = JZCalendarWeekView/JZLongPressWeekView.swift; sourceTree = "<group>"; };
+		E748D84DC6B4A61472580FA2FDE16835 /* JZCalendarWeekView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JZCalendarWeekView-Info.plist"; sourceTree = "<group>"; };
+		E8103313F52565EEA143605DAB154813 /* JZCornerHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZCornerHeader.swift; path = JZCalendarWeekView/ReusableViews/JZCornerHeader.swift; sourceTree = "<group>"; };
+		E8992A8FC54FD131917B2E2FCDD26603 /* JZRowHeaderBackground.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZRowHeaderBackground.swift; path = JZCalendarWeekView/ReusableViews/JZRowHeaderBackground.swift; sourceTree = "<group>"; };
+		F0FAE9B9EDC34E0485FE4F2702DD000E /* JZAllDayEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZAllDayEvent.swift; path = JZCalendarWeekView/JZAllDayEvent.swift; sourceTree = "<group>"; };
+		F12B8A59ECF9545E0B39B16D274A1C7C /* JZBaseWeekView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZBaseWeekView.swift; path = JZCalendarWeekView/JZBaseWeekView.swift; sourceTree = "<group>"; };
+		F1E6D7205BABEA1289B8209DD0D51957 /* JZWeekViewHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZWeekViewHelper.swift; path = JZCalendarWeekView/JZWeekViewHelper.swift; sourceTree = "<group>"; };
+		F856D11FEED1A2B440383DC3BB71A762 /* JZColumnHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZColumnHeader.swift; path = JZCalendarWeekView/ReusableViews/JZColumnHeader.swift; sourceTree = "<group>"; };
+		FB1804DB16E87C6B3BDF2927FF73C456 /* JZWeekViewFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JZWeekViewFlowLayout.swift; path = JZCalendarWeekView/JZWeekViewFlowLayout.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		54E701B19C2A1D7165831BFE1CDFDAA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17DDB8B8CAC45C8ED55CBFE286CC7ED0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A140F76E256E59F214E75D79C39C07B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2B0582AC43F46DB2B0181910E473C92 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1621AA1134D53261905F6C05C366CFBF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ADEABEC8344547052474CD1230DE9B8C /* JZCalendarWeekView.framework */,
+				462297AAAF88B6F1A0EE582D2AFD53D3 /* Pods_CSE438_FinalProject.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		207918D080C12B39879E5B46F98B65DD /* Pods-CSE438_FinalProject */ = {
+			isa = PBXGroup;
+			children = (
+				47CC592F4169F75164D66EA33FA8D847 /* Pods-CSE438_FinalProject.modulemap */,
+				07DAF6FCBD28DD47CAB50246E01CA03D /* Pods-CSE438_FinalProject-acknowledgements.markdown */,
+				A9FF1253C66918E01C164AB2F18ECF65 /* Pods-CSE438_FinalProject-acknowledgements.plist */,
+				B0596CF0CB90958BDE2C7875225ED40D /* Pods-CSE438_FinalProject-dummy.m */,
+				A0AD4B5954CC54FCCD1B128F8D174262 /* Pods-CSE438_FinalProject-frameworks.sh */,
+				82AD7E974EAADCD84C4DC4293C9ECBB0 /* Pods-CSE438_FinalProject-Info.plist */,
+				2D892256A109C7F48F7D7301DF81F8F4 /* Pods-CSE438_FinalProject-umbrella.h */,
+				8DBA40006B8CAD660601FE1C2E46EA67 /* Pods-CSE438_FinalProject.debug.xcconfig */,
+				63B0276D96AF993788420740647B87BF /* Pods-CSE438_FinalProject.release.xcconfig */,
+			);
+			name = "Pods-CSE438_FinalProject";
+			path = "Target Support Files/Pods-CSE438_FinalProject";
+			sourceTree = "<group>";
+		};
+		AC9675C3A68E1AB969C773B5EA87581F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD6D651C88E3D5E1B6887417275F0396 /* JZCalendarWeekView */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		C7D9E437E19C5645DEB1E641E9A8E358 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				207918D080C12B39879E5B46F98B65DD /* Pods-CSE438_FinalProject */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		CD6D651C88E3D5E1B6887417275F0396 /* JZCalendarWeekView */ = {
+			isa = PBXGroup;
+			children = (
+				A8CB1B1CB9A5BF271A7997D4F70B2082 /* Extensions.swift */,
+				1C3FAE28D202CECF1B0FB8CDD8BFE0B8 /* JZAllDayCorner.swift */,
+				F0FAE9B9EDC34E0485FE4F2702DD000E /* JZAllDayEvent.swift */,
+				0A220410EA217D1272EF26466992709B /* JZAllDayHeader.swift */,
+				4484087AC22AF7379B0411C2BB446964 /* JZAllDayHeaderBackground.swift */,
+				91C059B01BB22312DAFEE24D13E41F3C /* JZBaseEvent.swift */,
+				F12B8A59ECF9545E0B39B16D274A1C7C /* JZBaseWeekView.swift */,
+				20C9537670601D022D964872902915A6 /* JZCollectionView.swift */,
+				F856D11FEED1A2B440383DC3BB71A762 /* JZColumnHeader.swift */,
+				C64309163611F56C345CA09B8A1A4BEB /* JZColumnHeaderBackground.swift */,
+				E8103313F52565EEA143605DAB154813 /* JZCornerHeader.swift */,
+				1AD1309C749D392FB29C561A5417CF14 /* JZCurrentTimelinePage.swift */,
+				1AC36F5BBD22B91769ECF61FAB31A9BB /* JZCurrentTimelineSection.swift */,
+				0DF3775A5C3AECB269EA38E5523C91DB /* JZGridLine.swift */,
+				6E230C1E8885A0B93E9D340C98F59921 /* JZLongPressEventCell.swift */,
+				E0EC86A48971DFD1921E2CCC17B22FB2 /* JZLongPressWeekView.swift */,
+				9F143FB937791F2168E1FD1C32997302 /* JZRowHeader.swift */,
+				E8992A8FC54FD131917B2E2FCDD26603 /* JZRowHeaderBackground.swift */,
+				B84CA999F315DC2A4F8EC0C60284D60A /* JZWeekViewColors.swift */,
+				FB1804DB16E87C6B3BDF2927FF73C456 /* JZWeekViewFlowLayout.swift */,
+				F1E6D7205BABEA1289B8209DD0D51957 /* JZWeekViewHelper.swift */,
+				9A11106D1569EB71F9F1CA036C46AAB5 /* WeakTimer.swift */,
+				F5485DD4D7BFCE52E87ECBF090D6CB09 /* Support Files */,
+			);
+			name = JZCalendarWeekView;
+			path = JZCalendarWeekView;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				AC9675C3A68E1AB969C773B5EA87581F /* Pods */,
+				1621AA1134D53261905F6C05C366CFBF /* Products */,
+				C7D9E437E19C5645DEB1E641E9A8E358 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5485DD4D7BFCE52E87ECBF090D6CB09 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				50FD7722D32A8156212C50BD2F5B7302 /* JZCalendarWeekView.modulemap */,
+				5FC2F5863B5CC97F6B23FEC4C3601320 /* JZCalendarWeekView-dummy.m */,
+				E748D84DC6B4A61472580FA2FDE16835 /* JZCalendarWeekView-Info.plist */,
+				674037D531CB5CDC6E72CAC0E7FAC4D6 /* JZCalendarWeekView-prefix.pch */,
+				19E0B869AF6443C8D74D044AFC152A03 /* JZCalendarWeekView-umbrella.h */,
+				3E7A1ABA2FBAB4B3139799A734B5AD79 /* JZCalendarWeekView.debug.xcconfig */,
+				2381A15E1CE61212A0CC5B66FF1444C7 /* JZCalendarWeekView.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/JZCalendarWeekView";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		28488EC5913ACD4FAFA990A5CA6092ED /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				605E0A15DDB75838982948AAE8B49401 /* JZCalendarWeekView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFB5B8B5D9614CA3458C182400C5AB8B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7C2D68C4BB8E7CB7BF81225D23FFD03 /* Pods-CSE438_FinalProject-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C7F9B011A192122187B8DB0FD125093A /* Pods-CSE438_FinalProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40A6DB1F769C9B7F1E9BFBF74807A6A7 /* Build configuration list for PBXNativeTarget "Pods-CSE438_FinalProject" */;
+			buildPhases = (
+				FFB5B8B5D9614CA3458C182400C5AB8B /* Headers */,
+				ED034A5FE5173E8E66E5A03947080CA7 /* Sources */,
+				A140F76E256E59F214E75D79C39C07B7 /* Frameworks */,
+				B48C1D3D2EF2C341F4BF86F1EB1CDDEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3946A747931A9C312AF51EA61F376B00 /* PBXTargetDependency */,
+			);
+			name = "Pods-CSE438_FinalProject";
+			productName = "Pods-CSE438_FinalProject";
+			productReference = 462297AAAF88B6F1A0EE582D2AFD53D3 /* Pods_CSE438_FinalProject.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FB69877BBE5461EEA507FA5FCF8314F0 /* JZCalendarWeekView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA7A469217195F5188E725EE47F19E40 /* Build configuration list for PBXNativeTarget "JZCalendarWeekView" */;
+			buildPhases = (
+				28488EC5913ACD4FAFA990A5CA6092ED /* Headers */,
+				6B3B27290DE838430EB720D616A98E81 /* Sources */,
+				54E701B19C2A1D7165831BFE1CDFDAA4 /* Frameworks */,
+				61AC8FD6F4C6230B44532CE1548291C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JZCalendarWeekView;
+			productName = JZCalendarWeekView;
+			productReference = ADEABEC8344547052474CD1230DE9B8C /* JZCalendarWeekView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 1621AA1134D53261905F6C05C366CFBF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB69877BBE5461EEA507FA5FCF8314F0 /* JZCalendarWeekView */,
+				C7F9B011A192122187B8DB0FD125093A /* Pods-CSE438_FinalProject */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		61AC8FD6F4C6230B44532CE1548291C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B48C1D3D2EF2C341F4BF86F1EB1CDDEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6B3B27290DE838430EB720D616A98E81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2A7484E8F6CB39C9FF560C09AAB4446 /* Extensions.swift in Sources */,
+				1B204E64FAF4C4673EBB69EE46D43436 /* JZAllDayCorner.swift in Sources */,
+				41560EF36E298F44ED9B4C8FEFCEC0FE /* JZAllDayEvent.swift in Sources */,
+				B3D38A92D483F9A188DA4FE6F4DFA74F /* JZAllDayHeader.swift in Sources */,
+				77B843D669B9F7B47FBA8F6D1AAB9FEB /* JZAllDayHeaderBackground.swift in Sources */,
+				30EDCF4F7C772B9995A8EE95CF195A0E /* JZBaseEvent.swift in Sources */,
+				D81965932BCAD28B831B5491D8556EEF /* JZBaseWeekView.swift in Sources */,
+				02176772C786626D20D89FEAA08B206F /* JZCalendarWeekView-dummy.m in Sources */,
+				C7BAFF74FDC57E1E890BEF3DEEA74D68 /* JZCollectionView.swift in Sources */,
+				1DBDEEEB9923EDFADF707BB3822CD2F2 /* JZColumnHeader.swift in Sources */,
+				82E2B70B9F32E6E4A05596F725D4A953 /* JZColumnHeaderBackground.swift in Sources */,
+				3E7748F0B2D6A8B8A5459526774B5108 /* JZCornerHeader.swift in Sources */,
+				74A6B3136E020D93D249483285FEEE95 /* JZCurrentTimelinePage.swift in Sources */,
+				3A6D33EB076C5E2BA9B743C3A0E4F23F /* JZCurrentTimelineSection.swift in Sources */,
+				20F794BF26C2BE45048D1CBDF8D9E63F /* JZGridLine.swift in Sources */,
+				418E7DD067CE4390BE712D12DAFB57B6 /* JZLongPressEventCell.swift in Sources */,
+				765C39F1BAF6D14A8AA41A8F23118BC3 /* JZLongPressWeekView.swift in Sources */,
+				F0F3837092954E990B0EC864895D3A77 /* JZRowHeader.swift in Sources */,
+				A599167047C15C72591F1132897162B2 /* JZRowHeaderBackground.swift in Sources */,
+				DE0571E9AD45BBB36211DAA619B4DEBA /* JZWeekViewColors.swift in Sources */,
+				F90E462CDBDB8CAFB58CAA171BB59CF8 /* JZWeekViewFlowLayout.swift in Sources */,
+				97587DA0A46EEA3356FB5000398A0810 /* JZWeekViewHelper.swift in Sources */,
+				062F3EEF48017C6E73E814348BB772F6 /* WeakTimer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED034A5FE5173E8E66E5A03947080CA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91F35DFE304983FB00726929E6FD1E25 /* Pods-CSE438_FinalProject-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3946A747931A9C312AF51EA61F376B00 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JZCalendarWeekView;
+			target = FB69877BBE5461EEA507FA5FCF8314F0 /* JZCalendarWeekView */;
+			targetProxy = B56996D4F1371AA250A031FFB1839CC7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		13967C5C8F4B10B3EE4D6C208A0A7BEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		2DF91BFE86F9BD263B8ECC58154DDC8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E7A1ABA2FBAB4B3139799A734B5AD79 /* JZCalendarWeekView.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JZCalendarWeekView/JZCalendarWeekView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JZCalendarWeekView/JZCalendarWeekView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/JZCalendarWeekView/JZCalendarWeekView.modulemap";
+				PRODUCT_MODULE_NAME = JZCalendarWeekView;
+				PRODUCT_NAME = JZCalendarWeekView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		484EB832324AF42610BCC83B7659264C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2381A15E1CE61212A0CC5B66FF1444C7 /* JZCalendarWeekView.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JZCalendarWeekView/JZCalendarWeekView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JZCalendarWeekView/JZCalendarWeekView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/JZCalendarWeekView/JZCalendarWeekView.modulemap";
+				PRODUCT_MODULE_NAME = JZCalendarWeekView;
+				PRODUCT_NAME = JZCalendarWeekView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6D1548A5330601133792DD159CD95CE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63B0276D96AF993788420740647B87BF /* Pods-CSE438_FinalProject.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CSE438_FinalProject/Pods-CSE438_FinalProject-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CSE438_FinalProject/Pods-CSE438_FinalProject.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		871B6E28ABA34DAE69824AB9D22D3B7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		A6B1109E174325C0B329C70353B08582 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DBA40006B8CAD660601FE1C2E46EA67 /* Pods-CSE438_FinalProject.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CSE438_FinalProject/Pods-CSE438_FinalProject-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CSE438_FinalProject/Pods-CSE438_FinalProject.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		40A6DB1F769C9B7F1E9BFBF74807A6A7 /* Build configuration list for PBXNativeTarget "Pods-CSE438_FinalProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6B1109E174325C0B329C70353B08582 /* Debug */,
+				6D1548A5330601133792DD159CD95CE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13967C5C8F4B10B3EE4D6C208A0A7BEB /* Debug */,
+				871B6E28ABA34DAE69824AB9D22D3B7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA7A469217195F5188E725EE47F19E40 /* Build configuration list for PBXNativeTarget "JZCalendarWeekView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DF91BFE86F9BD263B8ECC58154DDC8F /* Debug */,
+				484EB832324AF42610BCC83B7659264C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
