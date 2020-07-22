@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  FirstViewController.swift
 //  CSE438_FinalProject
 //
 //  Created by Tejas Prasad on 7/20/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class FavoriteViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
