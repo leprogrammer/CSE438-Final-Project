@@ -2,7 +2,7 @@
 //  Permutations.swift
 //  CSE438_FinalProject
 //
-//  Created by Tejas Prasad on 7/21/20.
+//  Created by https://gist.github.com/proxpero/9fd3c4726d19242365d6
 //  Copyright © 2020 Tejas Prasad. All rights reserved.
 //
 
