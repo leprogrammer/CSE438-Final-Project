@@ -8,9 +8,13 @@
 
 import UIKit
 
-class SearchResultsViewController: UITableViewController {
+class CourseDetailViewController: UITableViewController
+{
 
-    override func viewDidLoad() {
+    static let segueIdentifier: String = "courseDetailViewControllerSegue"
+
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }

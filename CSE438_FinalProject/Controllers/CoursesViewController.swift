@@ -38,6 +38,14 @@ class CoursesViewController: UIViewController
         }
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if (segue.identifier == CourseDetailViewController.segueIdentifier)
+        {
+            //TODO: Pass selected course here 
+        }
+    }
+
 }
 
 extension CoursesViewController: UITableViewDataSource, UITableViewDelegate
@@ -65,11 +73,17 @@ extension CoursesViewController: UITableViewDataSource, UITableViewDelegate
     {
         // TODO : Add slid to add course and if course is added slide to delete
         /*if editingStyle == .delete
-         {
-         PersistenceHelper.context.delete(self.favMovies[indexPath.row])
-         PersistenceHelper.saveContext()
-         self.reload()
-         }*/
+        {
+        }*/
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        // Get the row selected
+
+        self.performSegue(withIdentifier: CourseDetailViewController.segueIdentifier, sender: nil)
     }
 
 

@@ -15,15 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMe-HF-Pas">
-                                <rect key="frame" x="0.0" y="699" width="375" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="gHL-ht-RhW" kind="show" id="qcG-EB-w1Z"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HNA-li-pg5">
-                                <rect key="frame" x="0.0" y="88" width="375" height="611"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="591"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CoursesTableViewCell" id="mFc-ja-jPJ" customClass="CoursesTableViewCell" customModule="CSE438_FinalProject" customModuleProvider="target">
@@ -33,7 +26,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohX-1F-hU2">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohX-1F-hU2">
                                                     <rect key="frame" x="20" y="15.999999999999998" width="335" height="18.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -49,20 +42,28 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="courseNameLabel" destination="ohX-1F-hU2" id="ZnB-87-RNN"/>
+                                            <segue destination="dMM-Sm-mkX" kind="show" identifier="courseDetailViewControllerSegue" id="t22-Zc-raE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMe-HF-Pas">
+                                <rect key="frame" x="10" y="689" width="355" height="30"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Review Selection">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="aMe-HF-Pas" firstAttribute="leading" secondItem="aJV-iP-apF" secondAttribute="leading" id="Feh-Yx-eiH"/>
+                            <constraint firstItem="aJV-iP-apF" firstAttribute="bottom" secondItem="aMe-HF-Pas" secondAttribute="bottom" constant="10" id="2Nn-yh-xuu"/>
+                            <constraint firstItem="aMe-HF-Pas" firstAttribute="leading" secondItem="aJV-iP-apF" secondAttribute="leading" constant="10" id="Feh-Yx-eiH"/>
+                            <constraint firstItem="aMe-HF-Pas" firstAttribute="top" secondItem="HNA-li-pg5" secondAttribute="bottom" constant="10" id="M4D-w1-U93"/>
                             <constraint firstItem="HNA-li-pg5" firstAttribute="leading" secondItem="aJV-iP-apF" secondAttribute="leading" id="MG7-3D-YQd"/>
                             <constraint firstItem="HNA-li-pg5" firstAttribute="top" secondItem="aJV-iP-apF" secondAttribute="top" id="NuE-VS-iXy"/>
-                            <constraint firstItem="aMe-HF-Pas" firstAttribute="bottom" secondItem="aJV-iP-apF" secondAttribute="bottom" id="S0M-oH-f9V"/>
-                            <constraint firstItem="aMe-HF-Pas" firstAttribute="top" secondItem="HNA-li-pg5" secondAttribute="bottom" id="UOy-pc-Iug"/>
                             <constraint firstItem="HNA-li-pg5" firstAttribute="trailing" secondItem="aJV-iP-apF" secondAttribute="trailing" id="ZPK-Iz-f0j"/>
-                            <constraint firstItem="aJV-iP-apF" firstAttribute="trailing" secondItem="aMe-HF-Pas" secondAttribute="trailing" id="aMf-hC-75j"/>
+                            <constraint firstItem="aJV-iP-apF" firstAttribute="trailing" secondItem="aMe-HF-Pas" secondAttribute="trailing" constant="10" id="aMf-hC-75j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aJV-iP-apF"/>
                     </view>
@@ -77,37 +78,21 @@
             </objects>
             <point key="canvasLocation" x="1645.5999999999999" y="-324.38423645320199"/>
         </scene>
-        <!--Search Results View Controller-->
-        <scene sceneID="rQq-jR-hnt">
+        <!--Course Detail View Controller-->
+        <scene sceneID="HA7-mh-qNs">
             <objects>
-                <tableViewController id="gHL-ht-RhW" customClass="SearchResultsViewController" customModule="CSE438_FinalProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="62H-ZM-H84">
+                <viewController id="dMM-Sm-mkX" customClass="CourseDetailViewController" customModule="CSE438_FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pdj-hM-2jv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Gkf-Xg-RUa">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gkf-Xg-RUa" id="dcE-zD-hGn">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="qaE-NP-5lh" kind="show" id="dXg-LG-mey"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="gHL-ht-RhW" id="gft-Yw-b6Z"/>
-                            <outlet property="delegate" destination="gHL-ht-RhW" id="FPy-eq-zwm"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="zxz-Pl-iLX"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5xK-aP-O3U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <viewLayoutGuide key="safeArea" id="atj-8Y-F29"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jPx-Xk-ig2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cAh-HJ-Toa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2418" y="-324"/>
+            <point key="canvasLocation" x="2418.4000000000001" y="-324.38423645320199"/>
         </scene>
         <!--Schedule View Controller-->
         <scene sceneID="rIH-0M-s0i">
@@ -178,7 +163,7 @@
         <scene sceneID="6VG-Hq-UeV">
             <objects>
                 <navigationController id="hX3-MO-AeP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Create Schedual" id="mFa-cg-rel"/>
+                    <tabBarItem key="tabBarItem" title="Create Schedual" image="calendar" catalog="system" id="mFa-cg-rel"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="M2g-Vm-Qyj">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -210,7 +195,7 @@
             <point key="canvasLocation" x="-62" y="-1"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="dXg-LG-mey"/>
-    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+    </resources>
 </document>
