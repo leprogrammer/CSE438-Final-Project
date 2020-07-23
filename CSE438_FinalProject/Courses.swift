@@ -23,13 +23,14 @@ struct Course {
 
 let allCourses = [Course]()
 
-
+//Pass in array of classes the student collected. If they didn't select a specific section, add all sections of that class. Also pass in the number of classes they selected (number of unique course names)
 func generateSchedules(selectedCourses: [Course], numberOfCoursesSelected: Int) -> [[Course]] {
     let temp = selectedCourses.powerSet//permutations(xs: selectedCourses) as [[Course]]
     
     return temp.filter { checkScheduleValid(schedule: $0) && $0.count < numberOfCoursesSelected}
 }
 
+//Check if array of classes is a valid schedule (no time conflicts and no duplicates)
 func checkScheduleValid(schedule: [Course]) -> Bool {
     var i = 0
     for item in schedule { 
@@ -52,6 +53,7 @@ func checkScheduleValid(schedule: [Course]) -> Bool {
     return true
 }
 
+//Helper function to check if there is a time conflict between two classes
 func doesClassConflict(a: Course, b: Course) -> Bool {
     if (a.mondayClass && b.mondayClass)
         || (a.tuesdayClass && b.tuesdayClass)
