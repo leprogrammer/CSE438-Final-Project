@@ -22,14 +22,12 @@ struct Course {
 }
 
 let allCourses = [Course]()
-let selectedCourses = [Course]()
 
 
-func generateSchedules() {
+func generateSchedules(selectedCourses: [Course]) -> [[Course]] {
     let temp = permutations(xs: selectedCourses) as [[Course]]
-    for schedule in temp {
-        _ = checkScheduleValid(schedule: schedule)
-    }
+    
+    return temp.filter { checkScheduleValid(schedule: $0)}
 }
 
 func checkScheduleValid(schedule: [Course]) -> Bool {
@@ -41,12 +39,16 @@ func checkScheduleValid(schedule: [Course]) -> Bool {
         }
         else {
             for index in i..<schedule.count {
+                if item.name == schedule[index].name {// check if schedule has same class but different sections in it
+                    return false
+                }
                 if doesClassConflict(a: item, b: schedule[index]) {
                     return false
                 }
             }
         }
     }
+    //Schedule has no time conflicts
     return true
 }
 
