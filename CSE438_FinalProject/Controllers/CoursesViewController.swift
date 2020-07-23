@@ -42,7 +42,20 @@ class CoursesViewController: UIViewController
     {
         if (segue.identifier == CourseDetailViewController.segueIdentifier)
         {
-            //TODO: Pass selected course here 
+            //TODO: Pass selected course here
+            guard let courseDetailViewController = segue.destination as? CourseDetailViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedCourseCell = sender as? CoursesTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = coursesTableView.indexPath(for: selectedCourseCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            //courseDetailViewController.course = allCourses[indexPath.row]
         }
     }
 
@@ -83,7 +96,7 @@ extension CoursesViewController: UITableViewDataSource, UITableViewDelegate
 
         // Get the row selected
 
-        self.performSegue(withIdentifier: CourseDetailViewController.segueIdentifier, sender: nil)
+        //self.performSegue(withIdentifier: CourseDetailViewController.segueIdentifier, sender: nil)
     }
 
 

@@ -8,10 +8,10 @@
 
 import UIKit
 
-class CourseDetailViewController: UITableViewController
+class CourseDetailViewController: UIViewController
 {
 
-    static let segueIdentifier: String = "courseDetailViewControllerSegue"
+    static let segueIdentifier: String = "ViewCourseDetail"
 
     override func viewDidLoad()
     {

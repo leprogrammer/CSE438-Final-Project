@@ -42,7 +42,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="courseNameLabel" destination="ohX-1F-hU2" id="ZnB-87-RNN"/>
-                                            <segue destination="dMM-Sm-mkX" kind="show" identifier="courseDetailViewControllerSegue" id="t22-Zc-raE"/>
+                                            <segue destination="dMM-Sm-mkX" kind="show" identifier="ViewCourseDetail" id="t22-Zc-raE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -81,6 +81,7 @@
         <!--Course Detail View Controller-->
         <scene sceneID="HA7-mh-qNs">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cAh-HJ-Toa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="dMM-Sm-mkX" customClass="CourseDetailViewController" customModule="CSE438_FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pdj-hM-2jv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -90,9 +91,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="jPx-Xk-ig2"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cAh-HJ-Toa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2418.4000000000001" y="-324.38423645320199"/>
+            <point key="canvasLocation" x="2394" y="-324"/>
         </scene>
         <!--Schedule View Controller-->
         <scene sceneID="rIH-0M-s0i">
