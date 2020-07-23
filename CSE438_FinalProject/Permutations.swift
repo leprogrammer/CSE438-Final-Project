@@ -15,6 +15,14 @@ extension Array {
     }
 }
 
+extension Array {
+    var powerSet: [[Element]] {
+        guard !isEmpty else { return [[]] }
+        let tailPowerSet = Array(self[1...]).powerSet
+        return tailPowerSet.map { [self[0]] + $0 } + tailPowerSet
+    }
+}
+
 func between<T>(x: T, _ ys: [T]) -> [[T]] {
     guard let (head, tail) = ys.decompose() else { return [[x]] }
     return [[x] + ys] + between(x: x, tail).map { [head] + $0 }

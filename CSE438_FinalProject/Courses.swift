@@ -24,10 +24,10 @@ struct Course {
 let allCourses = [Course]()
 
 
-func generateSchedules(selectedCourses: [Course]) -> [[Course]] {
-    let temp = permutations(xs: selectedCourses) as [[Course]]
+func generateSchedules(selectedCourses: [Course], numberOfCoursesSelected: Int) -> [[Course]] {
+    let temp = selectedCourses.powerSet//permutations(xs: selectedCourses) as [[Course]]
     
-    return temp.filter { checkScheduleValid(schedule: $0)}
+    return temp.filter { checkScheduleValid(schedule: $0) && $0.count < numberOfCoursesSelected}
 }
 
 func checkScheduleValid(schedule: [Course]) -> Bool {
