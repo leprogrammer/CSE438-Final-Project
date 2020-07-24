@@ -14,7 +14,7 @@ class CoursesViewController: UIViewController
 
     @IBOutlet weak var coursesCollectionView: UICollectionView!
     var selectedDepartment: Department?
-    var selectedCourses: [CourseData] = []
+    var selectedCourses: [Int: CourseData] = [:]
 
     static let removeCourseButtonLabel : String = "Remove Favorite"
     static let addCourseButtonLabel : String = "Add Favorite"
@@ -73,6 +73,27 @@ class CoursesViewController: UIViewController
 
 }
 
+extension CoursesViewController: CoursesCollectionViewCellDelegate
+{
+    func addCourse(index: Int)
+    {
+        guard let department : Department = self.selectedDepartment else
+        {
+            fatalError("Failed to obtain department to add course")
+        }
+
+        selectedCourses.updateValue(department.courses[index], forKey: index)
+    }
+
+    func removeCourse(index: Int)
+    {
+
+        selectedCourses.removeValue(forKey: index)
+    }
+
+
+}
+
 /**
  Helps pick up interaction with the cells
  */
@@ -105,8 +126,11 @@ extension CoursesViewController: UICollectionViewDataSource
         // If I can get the department then I know there's courses in them
         if let department : Department = self.selectedDepartment
         {
-            cell.configure(course: department.courses[indexPath.row])
+            cell.configure(course: department.courses[indexPath.row], index: indexPath.row)
+            cell.setAddOrRemoveBtn(courseSelected: self.selectedCourses.keys.contains(indexPath.row))
         }
+
+        cell.delegate = self
 
         cell.contentView.layer.cornerRadius = 2.0;
         cell.contentView.layer.borderWidth = 1.0;

@@ -114,6 +114,17 @@
 			path = CSE438_FinalProject;
 			sourceTree = "<group>";
 		};
+		F86E92D624CB49ED00B153F6 /* CoursesView */ = {
+			isa = PBXGroup;
+			children = (
+				F86E92D224CB25A400B153F6 /* CoursesCollectionViewCell.swift */,
+				D2B2C0E724C7D046005313B3 /* CourseDetailViewController.swift */,
+				D2D6239D24C65243006D4BB9 /* CoursesViewController.swift */,
+				F86E92D324CB25A400B153F6 /* CoursesCollectionViewCell.xib */,
+			);
+			path = CoursesView;
+			sourceTree = "<group>";
+		};
 		F87EE05824C927E9002A1F48 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,12 +138,9 @@
 		F87EE05924C927F6002A1F48 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F86E92D624CB49ED00B153F6 /* CoursesView */,
 				D2D6239B24C65243006D4BB9 /* FavoriteViewController.swift */,
-				D2D6239D24C65243006D4BB9 /* CoursesViewController.swift */,
 				D2B2C0E524C7D034005313B3 /* ScheduleViewController.swift */,
-				D2B2C0E724C7D046005313B3 /* CourseDetailViewController.swift */,
-				F86E92D224CB25A400B153F6 /* CoursesCollectionViewCell.swift */,
-				F86E92D324CB25A400B153F6 /* CoursesCollectionViewCell.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
