@@ -6,5 +6,5 @@ target 'CSE438_FinalProject' do
   use_frameworks!
 
   # Pods for CSE438_FinalProject
-  pod 'JZCalendarWeekView'
+  pod 'QVRWeekView'
 end
