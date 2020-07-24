@@ -19,6 +19,7 @@ class CoursesViewController: UIViewController
 
     var selectedDepartment: Department?
     var selectedCourses: [Int: CourseData] = [:]
+    var numberOfCourses = 0
 
     override func viewDidLoad()
     {
@@ -189,6 +190,7 @@ class CoursesViewController: UIViewController
             }
             // settings the generated courses
             generatedSchedulesViewController.selectedClasses = generateCourses()
+            generatedSchedulesViewController.numberOfCourses = numberOfCourses
         }
     }
 
@@ -204,12 +206,17 @@ extension CoursesViewController: CoursesCollectionViewCellDelegate
         }
 
         selectedCourses.updateValue(department.courses[index], forKey: index)
+        numberOfCourses += 1
         enableDisableGenerateScheduleButton()
     }
 
     func removeCourse(index: Int)
     {
         selectedCourses.removeValue(forKey: index)
+        numberOfCourses -= 1
+        if numberOfCourses <= 0 {
+            numberOfCourses = 0
+        }
         enableDisableGenerateScheduleButton()
     }
 

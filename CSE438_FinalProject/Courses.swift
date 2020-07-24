@@ -29,7 +29,7 @@ let allCourses = [Course]()
 func generateSchedules(selectedCourses: [Course], numberOfCoursesSelected: Int) -> [[Course]] {
     let temp = selectedCourses.powerSet//permutations(xs: selectedCourses) as [[Course]]
     
-    return temp.filter { checkScheduleValid(schedule: $0) && $0.count < numberOfCoursesSelected}
+    return temp.filter { checkScheduleValid(schedule: $0) && $0.count <= numberOfCoursesSelected && $0.count > 0}
 }
 
 //Check if array of classes is a valid schedule (no time conflicts and no duplicates)
