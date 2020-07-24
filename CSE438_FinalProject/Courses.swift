@@ -10,7 +10,7 @@ import Foundation
 
 struct Course {
     let name: String
-    let section: Int?
+    let section: String?
     let prof: String
     let startTime: Int //convert to 24 hour time
     let endTime: Int //convert to 24 hour time
@@ -19,6 +19,8 @@ struct Course {
     let wednesdayClass: Bool
     let thursdayClass: Bool
     let fridayClass: Bool
+    let saturdayClass: Bool
+    let sundayClass: Bool
 }
 
 let allCourses = [Course]()

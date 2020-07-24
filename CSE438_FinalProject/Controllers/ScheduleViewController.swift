@@ -10,12 +10,12 @@ import UIKit
 import QVRWeekView
 
 class ScheduleViewController: UIViewController, WeekViewDelegate {
-    
+
     var schedule = [Course]()
     var classes = [EventData]()
     var id = 0
     var showSaveButton = false
-    
+
     @IBOutlet weak var scheduleWeekView: WeekView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,16 +32,15 @@ class ScheduleViewController: UIViewController, WeekViewDelegate {
     func didLongPressDayView(in weekView: WeekView, atDate date: Date) {
         return
     }
-    
+
     func didTapEvent(in weekView: WeekView, withId eventId: String) {
         return
     }
-    
+
     func eventLoadRequest(in weekView: WeekView, between startDate: Date, and endDate: Date) {
         //let datePeriod = DateSupport.getAllDates(between: startDate, and: endDate)
-        
-        
+
+
         scheduleWeekView.loadEvents(withData: classes.isEmpty ? nil : classes)
     }
 }
-
