@@ -15,6 +15,10 @@ class CoursesViewController: UIViewController
     @IBOutlet weak var addCourseButton: UITableView!
 
     var selectedDepartment: Department?
+    var selectedCourses: [CourseData] = []
+
+    static let removeCourseButtonLabel : String = "Remove Favorite"
+    static let addCourseButtonLabel : String = "Add Favorite"
 
     override func viewDidLoad()
     {
