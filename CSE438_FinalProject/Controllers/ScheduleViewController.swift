@@ -14,7 +14,7 @@ class ScheduleViewController: UIViewController, WeekViewDelegate {
     var classes = [EventData]()
     var id = 0
     
-    @IBOutlet var scheduleWeekView: WeekView!
+    @IBOutlet weak var scheduleWeekView: WeekView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

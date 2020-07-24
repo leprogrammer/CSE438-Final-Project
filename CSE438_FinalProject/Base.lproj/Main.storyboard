@@ -22,6 +22,9 @@
                                 <state key="normal" title="Review Selection">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="hmh-1p-L2y" kind="show" identifier="GenerateSchedules" id="sT2-cZ-f2g"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iXc-Ms-HD8">
                                 <rect key="frame" x="5" y="93" width="365" height="588"/>
@@ -85,7 +88,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAh-HJ-Toa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2394" y="-324"/>
+            <point key="canvasLocation" x="2428" y="-681"/>
+        </scene>
+        <!--Generated Schedules-->
+        <scene sceneID="yhL-0N-Md4">
+            <objects>
+                <tableViewController id="hmh-1p-L2y" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DDF-aH-kbj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="0s8-2Z-QvJ">
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0s8-2Z-QvJ" id="0VB-6W-OHL">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="qaE-NP-5lh" kind="show" identifier="ViewGeneratedSchedule" id="6l6-on-6aI"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hmh-1p-L2y" id="KfM-1h-lYJ"/>
+                            <outlet property="delegate" destination="hmh-1p-L2y" id="TpO-Nv-WKQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Generated Schedules" id="b7a-y3-WfX"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MZH-oE-6Va" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2428" y="-43"/>
         </scene>
         <!--Schedule View Controller-->
         <scene sceneID="rIH-0M-s0i">
@@ -94,16 +129,31 @@
                     <view key="view" contentMode="scaleToFill" id="QjV-OM-0ko">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JWL-ok-Y8n" customClass="WeekView" customModule="QVRWeekView">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="JWL-ok-Y8n" firstAttribute="leading" secondItem="8TK-H7-XhA" secondAttribute="leading" id="bfd-gj-lGh"/>
+                            <constraint firstItem="8TK-H7-XhA" firstAttribute="trailing" secondItem="JWL-ok-Y8n" secondAttribute="trailing" id="eHr-zE-ZWg"/>
+                            <constraint firstItem="8TK-H7-XhA" firstAttribute="bottom" secondItem="JWL-ok-Y8n" secondAttribute="bottom" id="hcD-UZ-r8O"/>
+                            <constraint firstItem="JWL-ok-Y8n" firstAttribute="top" secondItem="8TK-H7-XhA" secondAttribute="top" id="zdH-B1-Kgc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="8TK-H7-XhA"/>
                     </view>
                     <navigationItem key="navigationItem" id="Tbn-x9-Eev"/>
+                    <connections>
+                        <outlet property="scheduleWeekView" destination="JWL-ok-Y8n" id="PfP-OG-cIg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvW-h4-ESt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2367" y="392"/>
+            <point key="canvasLocation" x="3217" y="296"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Favorite Schedules-->
         <scene sceneID="SGv-2c-eyK">
             <objects>
                 <tableViewController id="bcO-oK-UrQ" customClass="FavoriteViewController" customModule="CSE438_FinalProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -120,7 +170,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="qaE-NP-5lh" kind="show" id="8Bj-Hn-Svu"/>
+                                    <segue destination="qaE-NP-5lh" kind="show" identifier="ViewFavoriteSchedule" id="8Bj-Hn-Svu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -129,7 +179,7 @@
                             <outlet property="delegate" destination="bcO-oK-UrQ" id="tHd-tf-Iuq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="jLC-Fg-Ffb"/>
+                    <navigationItem key="navigationItem" title="Favorite Schedules" id="jLC-Fg-Ffb"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAy-qS-88c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -188,6 +238,9 @@
             <point key="canvasLocation" x="-62" y="-1"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="8Bj-Hn-Svu"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="folder" catalog="system" width="128" height="95"/>

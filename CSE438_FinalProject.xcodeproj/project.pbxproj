@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1E3B2817581EE1E6188EB79A /* Pods_CSE438_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5840BFA945FB7820C397255A /* Pods_CSE438_FinalProject.framework */; };
+		D2A69DFD24CB6D2E002C70D4 /* GeneratedSchedulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A69DFC24CB6D2E002C70D4 /* GeneratedSchedulesViewController.swift */; };
+		D2A69DFF24CB6DAD002C70D4 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A69DFE24CB6DAD002C70D4 /* ScheduleTableViewCell.swift */; };
 		D2B2C0E424C7CEF6005313B3 /* Permutations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B2C0E324C7CEF6005313B3 /* Permutations.swift */; };
 		D2B2C0E624C7D034005313B3 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B2C0E524C7D034005313B3 /* ScheduleViewController.swift */; };
 		D2B2C0E824C7D046005313B3 /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B2C0E724C7D046005313B3 /* CourseDetailViewController.swift */; };
@@ -30,6 +32,8 @@
 		3FED05BD2138E04FEEDF9A5F /* Pods-CSE438_FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSE438_FinalProject.debug.xcconfig"; path = "Target Support Files/Pods-CSE438_FinalProject/Pods-CSE438_FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
 		41F94F2F228B7F462E1CD25B /* Pods-CSE438_FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSE438_FinalProject.release.xcconfig"; path = "Target Support Files/Pods-CSE438_FinalProject/Pods-CSE438_FinalProject.release.xcconfig"; sourceTree = "<group>"; };
 		5840BFA945FB7820C397255A /* Pods_CSE438_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSE438_FinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2A69DFC24CB6D2E002C70D4 /* GeneratedSchedulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedSchedulesViewController.swift; sourceTree = "<group>"; };
+		D2A69DFE24CB6DAD002C70D4 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		D2B2C0E324C7CEF6005313B3 /* Permutations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permutations.swift; sourceTree = "<group>"; };
 		D2B2C0E524C7D034005313B3 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		D2B2C0E724C7D046005313B3 /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				F86E92D624CB49ED00B153F6 /* CoursesView */,
 				D2D6239B24C65243006D4BB9 /* FavoriteViewController.swift */,
 				D2B2C0E524C7D034005313B3 /* ScheduleViewController.swift */,
+				D2A69DFC24CB6D2E002C70D4 /* GeneratedSchedulesViewController.swift */,
+				D2A69DFE24CB6DAD002C70D4 /* ScheduleTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -263,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F86E92D424CB25A400B153F6 /* CoursesCollectionViewCell.swift in Sources */,
+				D2A69DFF24CB6DAD002C70D4 /* ScheduleTableViewCell.swift in Sources */,
 				D2D6239E24C65243006D4BB9 /* CoursesViewController.swift in Sources */,
 				D2D6239C24C65243006D4BB9 /* FavoriteViewController.swift in Sources */,
 				D2D6239824C65243006D4BB9 /* AppDelegate.swift in Sources */,
@@ -273,6 +280,7 @@
 				D2B2C0E424C7CEF6005313B3 /* Permutations.swift in Sources */,
 				F87EE05F24C93396002A1F48 /* GetData.swift in Sources */,
 				F87EE05B24C929E4002A1F48 /* CourseData.swift in Sources */,
+				D2A69DFD24CB6D2E002C70D4 /* GeneratedSchedulesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

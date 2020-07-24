@@ -52,6 +52,7 @@ class CoursesViewController: UIViewController
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
+        //View details of a course
         if (segue.identifier == CourseDetailViewController.segueIdentifier)
         {
             //TODO: Pass selected course here
