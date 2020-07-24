@@ -10,4 +10,5 @@ import UIKit
 
 class ScheduleTableViewCell : UITableViewCell {
     
+    @IBOutlet weak var scheduleTitle: UILabel!
 }

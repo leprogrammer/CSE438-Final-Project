@@ -10,9 +10,23 @@ import UIKit
 
 class FavoriteViewController: UITableViewController {
 
+    let identifier = "FavoriteScheduleCell"
+    var favoriteSchedules = [[Course]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ScheduleTableViewCell
+        
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return favoriteSchedules.count
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -21,19 +35,20 @@ class FavoriteViewController: UITableViewController {
         if (segue.identifier == "ViewFavoriteSchedule")
         {
             //TODO: Pass selected course here
-            guard segue.destination is ScheduleViewController else {
+            guard let scheduleViewController = segue.destination as? ScheduleViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
-            guard let selectedCourseCell = sender as? ScheduleTableViewCell else {
+            guard let selectedScheduleCell = sender as? ScheduleTableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             
-            guard tableView.indexPath(for: selectedCourseCell) != nil else {
+            guard let indexPath = tableView.indexPath(for: selectedScheduleCell) else {
                 fatalError("The selected cell is not being displayed by the table")
             }
             
-            //courseDetailViewController.course = allCourses[indexPath.row]
+            scheduleViewController.schedule = favoriteSchedules[indexPath.row]
+            scheduleViewController.showSaveButton = true
         }
     }
 }

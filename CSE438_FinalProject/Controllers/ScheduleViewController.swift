@@ -11,8 +11,10 @@ import QVRWeekView
 
 class ScheduleViewController: UIViewController, WeekViewDelegate {
     
+    var schedule = [Course]()
     var classes = [EventData]()
     var id = 0
+    var showSaveButton = false
     
     @IBOutlet weak var scheduleWeekView: WeekView!
     override func viewDidLoad() {
