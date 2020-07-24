@@ -95,8 +95,6 @@ class CoursesViewController: UIViewController
 
         // returning nil above if date is nil
         let time24 = dateFormatter.string(from: date!)
-
-        print("timeString: ", timeStr, " 24: ", time24)
         return time24
     }
 
@@ -163,9 +161,6 @@ class CoursesViewController: UIViewController
         return courses
     }
     
-    @IBAction func generateScheduleBtnClicked(_ sender: Any) {
-        self.performSegue(withIdentifier: "GenerateSchedules", sender: sender)
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         //View details of a course
