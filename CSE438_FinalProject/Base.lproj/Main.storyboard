@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,55 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HNA-li-pg5">
-                                <rect key="frame" x="0.0" y="88" width="375" height="591"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CoursesTableViewCell" id="mFc-ja-jPJ" customClass="CoursesTableViewCell" customModule="CSE438_FinalProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="40.333332061767578"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mFc-ja-jPJ" id="zGF-xp-Uff">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="40.333332061767578"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohX-1F-hU2">
-                                                    <rect key="frame" x="5" y="4.9999999999999982" width="270" height="30.333333333333329"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="Too-Mj-fsz"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aK-te-Ewp">
-                                                    <rect key="frame" x="289" y="4.9999999999999982" width="81" height="30.333333333333329"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="81" id="lLZ-sC-fdG"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Add Course"/>
-                                                    <connections>
-                                                        <action selector="addOrRemoveCourseClicked:" destination="Eto-2X-n7x" eventType="touchUpInside" id="JnE-1P-PJ4"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="3aK-te-Ewp" secondAttribute="trailing" constant="5" id="3IF-Yc-scy"/>
-                                                <constraint firstItem="ohX-1F-hU2" firstAttribute="top" secondItem="zGF-xp-Uff" secondAttribute="top" constant="5" id="5qc-eD-mNh"/>
-                                                <constraint firstItem="3aK-te-Ewp" firstAttribute="centerY" secondItem="ohX-1F-hU2" secondAttribute="centerY" id="BeW-Kq-CPH"/>
-                                                <constraint firstAttribute="bottom" secondItem="3aK-te-Ewp" secondAttribute="bottom" constant="5" id="CzG-j3-4kx"/>
-                                                <constraint firstAttribute="bottom" secondItem="ohX-1F-hU2" secondAttribute="bottom" constant="5" id="Ja8-KA-bkD"/>
-                                                <constraint firstItem="ohX-1F-hU2" firstAttribute="leading" secondItem="zGF-xp-Uff" secondAttribute="leading" constant="5" id="LCy-6s-hFb"/>
-                                                <constraint firstItem="3aK-te-Ewp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ohX-1F-hU2" secondAttribute="trailing" constant="8" symbolic="YES" id="WRl-Rp-K82"/>
-                                                <constraint firstItem="3aK-te-Ewp" firstAttribute="top" secondItem="zGF-xp-Uff" secondAttribute="top" constant="5" id="bfZ-uI-2XP"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="courseNameLabel" destination="ohX-1F-hU2" id="ZnB-87-RNN"/>
-                                            <segue destination="dMM-Sm-mkX" kind="show" identifier="ViewCourseDetail" id="t22-Zc-raE"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMe-HF-Pas">
                                 <rect key="frame" x="10" y="689" width="355" height="30"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -71,16 +23,40 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iXc-Ms-HD8">
+                                <rect key="frame" x="5" y="93" width="365" height="588"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dih-Az-BsN">
+                                    <size key="itemSize" width="322" height="121"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" id="pyy-D6-L5G" customClass="CoursesCollectionViewCell" customModule="CSE438_FinalProject" customModuleProvider="target">
+                                        <rect key="frame" x="21.666666666666668" y="0.0" width="322" height="121"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XTh-xy-lvr">
+                                            <rect key="frame" x="0.0" y="0.0" width="322" height="121"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <viewLayoutGuide key="safeArea" id="MG3-eg-NpA"/>
+                                        <connections>
+                                            <segue destination="dMM-Sm-mkX" kind="show" identifier="ViewCourseDetail" id="HsN-hm-JVt"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="aJV-iP-apF" firstAttribute="bottom" secondItem="aMe-HF-Pas" secondAttribute="bottom" constant="10" id="2Nn-yh-xuu"/>
+                            <constraint firstItem="aJV-iP-apF" firstAttribute="trailing" secondItem="iXc-Ms-HD8" secondAttribute="trailing" constant="5" id="Eyv-wr-6IM"/>
                             <constraint firstItem="aMe-HF-Pas" firstAttribute="leading" secondItem="aJV-iP-apF" secondAttribute="leading" constant="10" id="Feh-Yx-eiH"/>
-                            <constraint firstItem="aMe-HF-Pas" firstAttribute="top" secondItem="HNA-li-pg5" secondAttribute="bottom" constant="10" id="M4D-w1-U93"/>
-                            <constraint firstItem="HNA-li-pg5" firstAttribute="leading" secondItem="aJV-iP-apF" secondAttribute="leading" id="MG7-3D-YQd"/>
-                            <constraint firstItem="HNA-li-pg5" firstAttribute="top" secondItem="aJV-iP-apF" secondAttribute="top" id="NuE-VS-iXy"/>
-                            <constraint firstItem="HNA-li-pg5" firstAttribute="trailing" secondItem="aJV-iP-apF" secondAttribute="trailing" id="ZPK-Iz-f0j"/>
+                            <constraint firstItem="aMe-HF-Pas" firstAttribute="top" secondItem="iXc-Ms-HD8" secondAttribute="bottom" constant="8" id="MbH-6L-9Qp"/>
+                            <constraint firstItem="iXc-Ms-HD8" firstAttribute="leading" secondItem="aJV-iP-apF" secondAttribute="leading" constant="5" id="WgH-mB-MzF"/>
                             <constraint firstItem="aJV-iP-apF" firstAttribute="trailing" secondItem="aMe-HF-Pas" secondAttribute="trailing" constant="10" id="aMf-hC-75j"/>
+                            <constraint firstItem="iXc-Ms-HD8" firstAttribute="top" secondItem="aJV-iP-apF" secondAttribute="top" constant="5" id="x5P-2C-q6E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aJV-iP-apF"/>
                     </view>
@@ -88,8 +64,7 @@
                         <nil key="title"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="addCourseButton" destination="HNA-li-pg5" id="FCN-Pt-cua"/>
-                        <outlet property="coursesTableView" destination="HNA-li-pg5" id="Nty-Wl-Q0R"/>
+                        <outlet property="coursesCollectionView" destination="iXc-Ms-HD8" id="NGg-MD-G0P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGU-0U-e3w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

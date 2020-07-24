@@ -11,9 +11,8 @@ import UIKit
 
 class CoursesViewController: UIViewController
 {
-    @IBOutlet weak var coursesTableView: UITableView!
-    @IBOutlet weak var addCourseButton: UITableView!
 
+    @IBOutlet weak var coursesCollectionView: UICollectionView!
     var selectedDepartment: Department?
     var selectedCourses: [CourseData] = []
 
@@ -24,8 +23,14 @@ class CoursesViewController: UIViewController
     {
         super.viewDidLoad()
 
-        coursesTableView.delegate = self
-        coursesTableView.dataSource = self
+        // Setting up the collection view
+
+        let layout = UICollectionViewFlowLayout()
+         layout.itemSize = CGSize(width: 350, height: 100)
+         coursesCollectionView.collectionViewLayout = layout
+        coursesCollectionView.register(CoursesCollectionViewCell.nib(), forCellWithReuseIdentifier: CoursesCollectionViewCell.identifier)
+        coursesCollectionView.delegate = self
+        coursesCollectionView.dataSource = self
 
         getDepartment()
     }
@@ -39,31 +44,26 @@ class CoursesViewController: UIViewController
                 return
             case .results(let results):
                 self.selectedDepartment = results
-                self.coursesTableView.reloadData()
+                self.coursesCollectionView.reloadData()
+                self.coursesCollectionView.layoutIfNeeded()
             }
         }
     }
-
-    @IBAction func addOrRemoveCourseClicked(_ sender: Any)
-    {
-        
-    }
-
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if (segue.identifier == CourseDetailViewController.segueIdentifier)
         {
             //TODO: Pass selected course here
-            guard let courseDetailViewController = segue.destination as? CourseDetailViewController else {
+            guard segue.destination is CourseDetailViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
-            guard let selectedCourseCell = sender as? CoursesTableViewCell else {
+            guard let selectedCourseCell = sender as? CoursesCollectionViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             
-            guard let indexPath = coursesTableView.indexPath(for: selectedCourseCell) else {
+            guard coursesCollectionView.indexPath(for: selectedCourseCell) != nil else {
                 fatalError("The selected cell is not being displayed by the table")
             }
             
@@ -73,38 +73,65 @@ class CoursesViewController: UIViewController
 
 }
 
-//MARK: Table View Extnesion
-extension CoursesViewController: UITableViewDataSource, UITableViewDelegate
+/**
+ Helps pick up interaction with the cells
+ */
+extension CoursesViewController: UICollectionViewDelegate
 {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    /**
+     Gets called when user taps on one of the collection view
+     */
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        return self.selectedDepartment?.courses.count ?? 0;
+        // perform Segue
+        collectionView.deselectItem(at: indexPath, animated: true)
+        self.performSegue(withIdentifier: CourseDetailViewController.segueIdentifier, sender: collectionView.cellForItem(at: indexPath))
+    }
+}
+
+extension CoursesViewController: UICollectionViewDataSource
+{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
+        // Need to specify actual items
+        return self.selectedDepartment?.courses.count ?? 0
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: CoursesTableViewCell.identifier) as! CoursesTableViewCell
-        if let department = self.selectedDepartment
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CoursesCollectionViewCell.identifier, for: indexPath) as! CoursesCollectionViewCell
+
+        // If I can get the department then I know there's courses in them
+        if let department : Department = self.selectedDepartment
         {
-            if department.courses.count > 0
-            {
-                cell.setupCell(courseName: department.courses[indexPath.row].courseName)
-            }
+            cell.configure(course: department.courses[indexPath.row])
         }
+
+        cell.contentView.layer.cornerRadius = 2.0;
+        cell.contentView.layer.borderWidth = 1.0;
+        cell.contentView.layer.borderColor = UIColor.clear.cgColor;
+        cell.contentView.layer.masksToBounds = true;
+
+        cell.layer.shadowColor = UIColor.black.cgColor;
+        cell.layer.shadowOffset = CGSize(width: 0, height: 2.0);
+        cell.layer.shadowRadius = 2.0;
+        cell.layer.shadowOpacity = 0.5;
+        cell.layer.masksToBounds = false;
+
+        /*cell.layer.shadowPath = [UIBezierPath, bezierPathWithRoundedRect:cell.bounds cornerRadius:cell.contentView.layer.cornerRadius].CGPath*/
+
         return cell
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        tableView.deselectRow(at: indexPath, animated: true)
+}
 
-        // Get the row selected
-
-        //self.performSegue(withIdentifier: CourseDetailViewController.segueIdentifier, sender: nil)
-    }
-
-
+/**
+ Helps customize
+ */
+extension CoursesViewController: UICollectionViewDelegateFlowLayout
+{
+    // Here if we want to do any customization
 }
 
 
