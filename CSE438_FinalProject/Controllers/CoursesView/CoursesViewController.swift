@@ -56,7 +56,7 @@ class CoursesViewController: UIViewController
         if (segue.identifier == CourseDetailViewController.segueIdentifier)
         {
             //TODO: Pass selected course here
-            guard segue.destination is CourseDetailViewController else {
+            guard let courseDetailViewController = segue.destination as? CourseDetailViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
@@ -64,11 +64,19 @@ class CoursesViewController: UIViewController
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             
-            guard coursesCollectionView.indexPath(for: selectedCourseCell) != nil else {
+            guard let indexPath = coursesCollectionView.indexPath(for: selectedCourseCell) else {
                 fatalError("The selected cell is not being displayed by the table")
             }
             
-            //courseDetailViewController.course = allCourses[indexPath.row]
+            //courseDetailViewController.course = selectedDepartment?.courses[indexPath.item]
+        }
+        else if (segue.identifier == "GenerateSchedules") {
+            guard let generatedSchedulesViewController = segue.destination as? GeneratedSchedulesViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            //TODO: HARPRABH FILL IN THIS VAR WITH THE CLASSES THE USER SELECTED
+            //generatedSchedulesViewController.selectedClasses = selectedCourses
         }
     }
 
