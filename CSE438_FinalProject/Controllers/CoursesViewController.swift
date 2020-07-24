@@ -12,6 +12,8 @@ import UIKit
 class CoursesViewController: UIViewController
 {
     @IBOutlet weak var coursesTableView: UITableView!
+    @IBOutlet weak var addCourseButton: UITableView!
+
     var selectedDepartment: Department?
 
     override func viewDidLoad()
@@ -38,6 +40,12 @@ class CoursesViewController: UIViewController
         }
     }
 
+    @IBAction func addOrRemoveCourseClicked(_ sender: Any)
+    {
+        
+    }
+
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if (segue.identifier == CourseDetailViewController.segueIdentifier)
@@ -61,6 +69,7 @@ class CoursesViewController: UIViewController
 
 }
 
+//MARK: Table View Extnesion
 extension CoursesViewController: UITableViewDataSource, UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -80,14 +89,6 @@ extension CoursesViewController: UITableViewDataSource, UITableViewDelegate
             }
         }
         return cell
-    }
-
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
-    {
-        // TODO : Add slid to add course and if course is added slide to delete
-        /*if editingStyle == .delete
-        {
-        }*/
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)

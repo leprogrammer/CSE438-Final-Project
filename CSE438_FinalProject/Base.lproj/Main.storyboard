@@ -20,24 +20,41 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CoursesTableViewCell" id="mFc-ja-jPJ" customClass="CoursesTableViewCell" customModule="CSE438_FinalProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="50.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="40.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mFc-ja-jPJ" id="zGF-xp-Uff">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="40.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohX-1F-hU2">
-                                                    <rect key="frame" x="20" y="15.999999999999998" width="335" height="18.333333333333329"/>
+                                                    <rect key="frame" x="5" y="4.9999999999999982" width="270" height="30.333333333333329"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="Too-Mj-fsz"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aK-te-Ewp">
+                                                    <rect key="frame" x="289" y="4.9999999999999982" width="81" height="30.333333333333329"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="81" id="lLZ-sC-fdG"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Add Course"/>
+                                                    <connections>
+                                                        <action selector="addOrRemoveCourseClicked:" destination="Eto-2X-n7x" eventType="touchUpInside" id="JnE-1P-PJ4"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ohX-1F-hU2" firstAttribute="top" secondItem="zGF-xp-Uff" secondAttribute="topMargin" constant="5" id="4Xv-9k-wil"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ohX-1F-hU2" secondAttribute="bottom" constant="5" id="D5J-S7-gqC"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ohX-1F-hU2" secondAttribute="trailing" constant="5" id="MoC-A4-JqP"/>
-                                                <constraint firstItem="ohX-1F-hU2" firstAttribute="leading" secondItem="zGF-xp-Uff" secondAttribute="leadingMargin" constant="5" id="Ylo-5r-DfD"/>
+                                                <constraint firstAttribute="trailing" secondItem="3aK-te-Ewp" secondAttribute="trailing" constant="5" id="3IF-Yc-scy"/>
+                                                <constraint firstItem="ohX-1F-hU2" firstAttribute="top" secondItem="zGF-xp-Uff" secondAttribute="top" constant="5" id="5qc-eD-mNh"/>
+                                                <constraint firstItem="3aK-te-Ewp" firstAttribute="centerY" secondItem="ohX-1F-hU2" secondAttribute="centerY" id="BeW-Kq-CPH"/>
+                                                <constraint firstAttribute="bottom" secondItem="3aK-te-Ewp" secondAttribute="bottom" constant="5" id="CzG-j3-4kx"/>
+                                                <constraint firstAttribute="bottom" secondItem="ohX-1F-hU2" secondAttribute="bottom" constant="5" id="Ja8-KA-bkD"/>
+                                                <constraint firstItem="ohX-1F-hU2" firstAttribute="leading" secondItem="zGF-xp-Uff" secondAttribute="leading" constant="5" id="LCy-6s-hFb"/>
+                                                <constraint firstItem="3aK-te-Ewp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ohX-1F-hU2" secondAttribute="trailing" constant="8" symbolic="YES" id="WRl-Rp-K82"/>
+                                                <constraint firstItem="3aK-te-Ewp" firstAttribute="top" secondItem="zGF-xp-Uff" secondAttribute="top" constant="5" id="bfZ-uI-2XP"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -71,6 +88,7 @@
                         <nil key="title"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="addCourseButton" destination="HNA-li-pg5" id="FCN-Pt-cua"/>
                         <outlet property="coursesTableView" destination="HNA-li-pg5" id="Nty-Wl-Q0R"/>
                     </connections>
                 </viewController>
@@ -81,7 +99,6 @@
         <!--Course Detail View Controller-->
         <scene sceneID="HA7-mh-qNs">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cAh-HJ-Toa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="dMM-Sm-mkX" customClass="CourseDetailViewController" customModule="CSE438_FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pdj-hM-2jv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -91,6 +108,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="jPx-Xk-ig2"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cAh-HJ-Toa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2394" y="-324"/>
         </scene>
@@ -142,11 +160,11 @@
             </objects>
             <point key="canvasLocation" x="1646" y="392"/>
         </scene>
-        <!--Item-->
+        <!--Saved Schedules-->
         <scene sceneID="2jo-HZ-Vm3">
             <objects>
                 <navigationController id="WBP-nD-131" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="6lT-wz-5oY"/>
+                    <tabBarItem key="tabBarItem" title="Saved Schedules" image="folder" catalog="system" id="6lT-wz-5oY"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FMQ-c1-4dQ">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -197,5 +215,6 @@
     </scenes>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="folder" catalog="system" width="128" height="95"/>
     </resources>
 </document>
