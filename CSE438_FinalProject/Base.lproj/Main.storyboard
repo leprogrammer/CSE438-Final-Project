@@ -95,21 +95,21 @@
         <!--Generated Schedules-->
         <scene sceneID="yhL-0N-Md4">
             <objects>
-                <tableViewController id="hmh-1p-L2y" sceneMemberID="viewController">
+                <tableViewController id="hmh-1p-L2y" customClass="GeneratedSchedulesViewController" customModule="CSE438_FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DDF-aH-kbj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GenerateScheduleCell" id="0s8-2Z-QvJ" customClass="ScheduleTableViewCell" customModule="CSE438_FinalProject" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="42.666667938232422"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.333332061767578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0s8-2Z-QvJ" id="0VB-6W-OHL">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="42.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.333332061767578"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udb-Uq-mHb">
-                                            <rect key="frame" x="16" y="11.000000000000002" width="42" height="20.666666666666671"/>
+                                            <rect key="frame" x="16" y="10.999999999999998" width="42" height="21.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -187,14 +187,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteScheduleCell" id="7lm-aR-X9V" customClass="ScheduleTableViewCell" customModule="CSE438_FinalProject" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="42.666667938232422"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7lm-aR-X9V" id="KGC-yA-0gP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="42.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88A-rm-xR4">
-                                            <rect key="frame" x="16" y="11.000000000000002" width="42" height="20.666666666666671"/>
+                                            <rect key="frame" x="16" y="11" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -277,7 +277,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8Bj-Hn-Svu"/>
+        <segue reference="6l6-on-6aI"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
