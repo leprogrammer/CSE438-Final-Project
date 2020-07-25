@@ -74,6 +74,7 @@ class CoursesViewController: UIViewController
         (selectedCourses.count != 0) ? (generateScheduleBtn.backgroundColor = UIColor.blue) : (generateScheduleBtn.backgroundColor = UIColor.black)
     }
 
+        //MARK: Course generation
     /// Converts 1:24 PM to 13:24 https://stackoverflow.com/questions/29321947/xcode-swift-am-pm-time-to-24-hour-format
     func convert12To24(timeStr: String) -> String?
     {
@@ -161,7 +162,8 @@ class CoursesViewController: UIViewController
         }
         return courses
     }
-    
+
+    //MARK: Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         //View details of a course
@@ -180,7 +182,7 @@ class CoursesViewController: UIViewController
                 fatalError("The selected cell is not being displayed by the table")
             }
             
-            //courseDetailViewController.course = selectedDepartment?.courses[indexPath.item]
+            courseDetailViewController.selectedCourseData = selectedDepartment?.courses[indexPath.item]
         }
         else if (segue.identifier == "GenerateSchedules")
         {
@@ -196,6 +198,7 @@ class CoursesViewController: UIViewController
 
 }
 
+//MARK: Extensions
 extension CoursesViewController: CoursesCollectionViewCellDelegate
 {
     func addCourse(index: Int)
@@ -250,7 +253,10 @@ extension CoursesViewController: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CoursesCollectionViewCell.identifier, for: indexPath) as! CoursesCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CoursesCollectionViewCell.identifier, for: indexPath) as? CoursesCollectionViewCell else
+        {
+            fatalError("Failed to create cell for \(CoursesCollectionViewCell.identifier)")
+        }
 
         // If I can get the department then I know there's courses in them
         if let department : Department = self.selectedDepartment

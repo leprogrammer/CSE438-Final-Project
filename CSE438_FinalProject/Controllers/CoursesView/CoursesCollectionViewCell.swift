@@ -62,7 +62,7 @@ class CoursesCollectionViewCell: UICollectionViewCell {
 
     static func nib() -> UINib
     {
-        return UINib(nibName: "CoursesCollectionViewCell", bundle: nil)
+        return UINib(nibName: CoursesCollectionViewCell.identifier, bundle: nil)
     }
 
     @IBAction func addRemoveCourseClicked(_ sender: Any)
