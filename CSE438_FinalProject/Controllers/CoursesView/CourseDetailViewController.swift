@@ -27,7 +27,7 @@ class CourseDetailViewController: UIViewController
         // Setting up the collection view
 
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 350, height: 100)
+        layout.itemSize = CGSize(width: 350, height: 120)
         classesCollectionView.collectionViewLayout = layout
         classesCollectionView.register(ClassCollectionViewCell.nib(), forCellWithReuseIdentifier: ClassCollectionViewCell.identifier)
         classesCollectionView.dataSource = self
@@ -41,6 +41,7 @@ class CourseDetailViewController: UIViewController
 
     func setUpView(courseData: CourseData)
     {
+        courseTagNameLabel.backgroundColor = UIColor(hue: 359/360, saturation: 87/100, brightness: 64/100, alpha: 1.0) /* #a51417 */
         courseTagNameLabel.text = courseData.courseTag + " : " + courseData.courseName
         unitsLabel.text = "Units: " + courseData.units
         courseDescription.text = "Description: " + (courseData.description ?? "No Description Provided")
@@ -69,7 +70,7 @@ extension CourseDetailViewController: UICollectionViewDataSource
         // If I can get the department then I know there's courses in them
         if let c: Class = self.selectedCourseData?.classes[indexPath.row]
         {
-            cell.configure(class: c)
+            cell.configure(c: c)
         }
 
         cell.contentView.layer.cornerRadius = 2.0;

@@ -28,10 +28,12 @@ struct CourseData: Decodable
 
 struct Class: Decodable
 {
-    let set: String?
+    let sec: String!
     let days: [String]
     let startTime: String?
     let endTime: String?
+    let startDate: String!
+    let endDate: String!
     let location: String?
     let locationRef: String?
     let instructor: String?

@@ -148,7 +148,7 @@ class CoursesViewController: UIViewController
                         {
                             let classDays = convertDaysOfWeekToBool(days: class_.days)
 
-                            courses.append(Course(name: courseData.courseName, section: courseData.courseTag, prof: class_.instructor ?? "", startTime: startTimeInt, endTime: endTimeInt, mondayClass: classDays[0], tuesdayClass: classDays[1], wednesdayClass: classDays[2], thursdayClass: classDays[3], fridayClass: classDays[4], saturdayClass: classDays[5], sundayClass: classDays[6]))
+                            courses.append(Course(name: courseData.courseName, section: class_.sec, prof: class_.instructor ?? "", startTime: startTimeInt, endTime: endTimeInt, mondayClass: classDays[0], tuesdayClass: classDays[1], wednesdayClass: classDays[2], thursdayClass: classDays[3], fridayClass: classDays[4], saturdayClass: classDays[5], sundayClass: classDays[6]))
                         }
 
                     }

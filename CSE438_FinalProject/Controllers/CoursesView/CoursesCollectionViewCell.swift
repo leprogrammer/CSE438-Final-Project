@@ -50,12 +50,12 @@ class CoursesCollectionViewCell: UICollectionViewCell {
         if courseSelected
         {
             addOrRemoveCourseBtn.setTitle(CoursesCollectionViewCell.removeCourseButtonLabel, for: .normal)
-            addOrRemoveCourseBtn.backgroundColor = UIColor(hue: 0, saturation: 0.92, brightness: 0.85, alpha: 1.0) /* #d91111 */
+            addOrRemoveCourseBtn.backgroundColor = UIColor(hue: 359/360, saturation: 87/100, brightness: 64/100, alpha: 1.0) /* #a51417 */
         }
         else
         {
             addOrRemoveCourseBtn.setTitle(CoursesCollectionViewCell.addCourseButtonLabel, for: .normal)
-            addOrRemoveCourseBtn.backgroundColor = UIColor(hue: 0.3806, saturation: 0.98, brightness: 0.67, alpha: 1.0) /* #02ab34 */
+            addOrRemoveCourseBtn.backgroundColor = UIColor(hue: 0.2361, saturation: 0.83, brightness: 0.6, alpha: 1.0) /* #64991a */
         }
 
     }
