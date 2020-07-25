@@ -23,6 +23,18 @@ struct Course {
     let sundayClass: Bool
 }
 
+struct Restriction {
+    let startTime: Int // 24 hour time
+    let endTime: Int // 24 hour time
+    let mondayClass: Bool
+    let tuesdayClass: Bool
+    let wednesdayClass: Bool
+    let thursdayClass: Bool
+    let fridayClass: Bool
+    let saturdayClass: Bool
+    let sundayClass: Bool
+}
+
 let allCourses = [Course]()
 
 //Pass in array of classes the student collected. If they didn't select a specific section, add all sections of that class. Also pass in the number of classes they selected (number of unique course names)
@@ -62,6 +74,8 @@ func doesClassConflict(a: Course, b: Course) -> Bool {
         || (a.wednesdayClass && b.wednesdayClass)
         || (a.thursdayClass && b.thursdayClass)
         || (a.fridayClass && b.fridayClass)
+        || (a.saturdayClass && b.saturdayClass)
+        || (a.sundayClass && b.sundayClass)
         // Check if classes are on same day
     {
         if (a.endTime <= b.startTime)

@@ -43,4 +43,16 @@ class ScheduleViewController: UIViewController, WeekViewDelegate {
 
         scheduleWeekView.loadEvents(withData: classes.isEmpty ? nil : classes)
     }
+    
+    private func convertCourseToEventData() {
+        var i = 0
+        for course in schedule {
+            let startDate = Date()
+            let endDate = Date()
+            let temp = EventData(id: i, title: course.name, startDate: startDate, endDate: endDate, color: .blue)
+            classes.append(temp)
+            
+            i += 1
+        }
+    }
 }
