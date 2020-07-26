@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMe-HF-Pas">
-                                <rect key="frame" x="10" y="689" width="355" height="30"/>
+                                <rect key="frame" x="0.0" y="699" width="375" height="30"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Generate Schedule">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iXc-Ms-HD8">
-                                <rect key="frame" x="5" y="93" width="365" height="588"/>
+                                <rect key="frame" x="5" y="93" width="365" height="598"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dih-Az-BsN">
                                     <size key="itemSize" width="322" height="121"/>
@@ -53,12 +53,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="aJV-iP-apF" firstAttribute="bottom" secondItem="aMe-HF-Pas" secondAttribute="bottom" constant="10" id="2Nn-yh-xuu"/>
+                            <constraint firstItem="aJV-iP-apF" firstAttribute="bottom" secondItem="aMe-HF-Pas" secondAttribute="bottom" id="2Nn-yh-xuu"/>
                             <constraint firstItem="aJV-iP-apF" firstAttribute="trailing" secondItem="iXc-Ms-HD8" secondAttribute="trailing" constant="5" id="Eyv-wr-6IM"/>
-                            <constraint firstItem="aMe-HF-Pas" firstAttribute="leading" secondItem="aJV-iP-apF" secondAttribute="leading" constant="10" id="Feh-Yx-eiH"/>
+                            <constraint firstItem="aMe-HF-Pas" firstAttribute="leading" secondItem="aJV-iP-apF" secondAttribute="leading" id="Feh-Yx-eiH"/>
                             <constraint firstItem="aMe-HF-Pas" firstAttribute="top" secondItem="iXc-Ms-HD8" secondAttribute="bottom" constant="8" id="MbH-6L-9Qp"/>
                             <constraint firstItem="iXc-Ms-HD8" firstAttribute="leading" secondItem="aJV-iP-apF" secondAttribute="leading" constant="5" id="WgH-mB-MzF"/>
-                            <constraint firstItem="aJV-iP-apF" firstAttribute="trailing" secondItem="aMe-HF-Pas" secondAttribute="trailing" constant="10" id="aMf-hC-75j"/>
+                            <constraint firstItem="aJV-iP-apF" firstAttribute="trailing" secondItem="aMe-HF-Pas" secondAttribute="trailing" id="aMf-hC-75j"/>
                             <constraint firstItem="iXc-Ms-HD8" firstAttribute="top" secondItem="aJV-iP-apF" secondAttribute="top" constant="5" id="x5P-2C-q6E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aJV-iP-apF"/>
@@ -320,7 +320,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92i-JF-Kgh">
-                                <rect key="frame" x="5" y="699" width="365" height="30"/>
+                                <rect key="frame" x="0.0" y="699" width="375" height="30"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="View Courses">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -330,13 +330,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Department:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdU-jv-zZ6">
-                                <rect key="frame" x="5" y="93" width="365" height="21"/>
+                                <rect key="frame" x="5" y="93" width="365" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S6s-6e-7R0">
-                                <rect key="frame" x="0.0" y="119" width="375" height="250"/>
+                                <rect key="frame" x="0.0" y="118.33333333333331" width="375" height="250"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="IYr-yz-dAa"/>
@@ -370,25 +370,46 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9IM-FH-Djp">
+                                <rect key="frame" x="3" y="376" width="369" height="31"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SjB-xs-ixc">
+                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter out courses with no class time (research, project)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRz-i8-H7L">
+                                        <rect key="frame" x="54" y="0.0" width="315" height="31"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="SjB-xs-ixc" firstAttribute="centerY" secondItem="gRz-i8-H7L" secondAttribute="centerY" id="pgL-wK-6aE"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="92i-JF-Kgh" firstAttribute="leading" secondItem="lsB-Qe-tYp" secondAttribute="leading" constant="5" id="9BE-r4-9B2"/>
+                            <constraint firstItem="lsB-Qe-tYp" firstAttribute="trailing" secondItem="9IM-FH-Djp" secondAttribute="trailing" constant="3" id="3x0-3t-Oh6"/>
+                            <constraint firstItem="92i-JF-Kgh" firstAttribute="leading" secondItem="lsB-Qe-tYp" secondAttribute="leading" id="9BE-r4-9B2"/>
+                            <constraint firstItem="9IM-FH-Djp" firstAttribute="top" secondItem="S6s-6e-7R0" secondAttribute="bottom" constant="7.6666666666666856" id="E7b-B1-0qb"/>
                             <constraint firstItem="lsB-Qe-tYp" firstAttribute="trailing" secondItem="bdU-jv-zZ6" secondAttribute="trailing" constant="5" id="HmL-hc-edW"/>
                             <constraint firstItem="S6s-6e-7R0" firstAttribute="top" secondItem="bdU-jv-zZ6" secondAttribute="bottom" constant="5" id="KQL-tl-m77"/>
-                            <constraint firstItem="lsB-Qe-tYp" firstAttribute="trailing" secondItem="92i-JF-Kgh" secondAttribute="trailing" constant="5" id="XuR-uU-pb6"/>
+                            <constraint firstItem="lsB-Qe-tYp" firstAttribute="trailing" secondItem="92i-JF-Kgh" secondAttribute="trailing" id="XuR-uU-pb6"/>
                             <constraint firstItem="bdU-jv-zZ6" firstAttribute="leading" secondItem="lsB-Qe-tYp" secondAttribute="leading" constant="5" id="bld-P1-k4G"/>
                             <constraint firstItem="S6s-6e-7R0" firstAttribute="trailing" secondItem="lsB-Qe-tYp" secondAttribute="trailing" id="hSk-tR-Oio"/>
                             <constraint firstItem="S6s-6e-7R0" firstAttribute="leading" secondItem="lsB-Qe-tYp" secondAttribute="leading" id="lSi-tp-MVE"/>
                             <constraint firstItem="S6s-6e-7R0" firstAttribute="leading" secondItem="lsB-Qe-tYp" secondAttribute="leading" id="qaH-9s-oHY"/>
                             <constraint firstItem="92i-JF-Kgh" firstAttribute="bottom" secondItem="lsB-Qe-tYp" secondAttribute="bottom" id="tRJ-O9-2lf"/>
                             <constraint firstItem="bdU-jv-zZ6" firstAttribute="top" secondItem="lsB-Qe-tYp" secondAttribute="top" constant="5" id="u6H-cJ-187"/>
+                            <constraint firstItem="9IM-FH-Djp" firstAttribute="leading" secondItem="lsB-Qe-tYp" secondAttribute="leading" constant="3" id="zOh-Lq-M4I"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lsB-Qe-tYp"/>
                     </view>
                     <navigationItem key="navigationItem" title="Departments for Engineering - FL2020" id="qcW-1t-yGQ"/>
                     <connections>
                         <outlet property="departmentTableView" destination="S6s-6e-7R0" id="tDs-Tx-4wn"/>
+                        <outlet property="filterOutSelfStudySwitch" destination="SjB-xs-ixc" id="1NS-1s-eH6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yWq-GF-LUy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

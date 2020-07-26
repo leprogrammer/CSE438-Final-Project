@@ -21,6 +21,7 @@ class CoursesViewController: UIViewController
 
     var loadedDepartment: Department?
     var selectedDepartment: String?
+    var filterOutSelfStudy = true
     var selectedCourses: [Int: CourseData] = [:]
     var numberOfCourses = 0
 
@@ -53,12 +54,50 @@ class CoursesViewController: UIViewController
                 print("Error Searching: \(error)")
                 return
             case .results(let results):
-                self.loadedDepartment = results
+                self.loadedDepartment = self.filterCourses(department: results)
                 self.coursesCollectionView.reloadData()
                 self.coursesCollectionView.layoutIfNeeded()
             }
             self.stopActivity()
         })
+    }
+
+    func filterCourses(department: Department) -> Department
+    {
+        var newDepartment = Department(department: department.department, courses: [])
+
+        for course in department.courses
+        {
+            var copy = course
+            
+            if filterOutSelfStudy
+            {
+                for class_ in course.classes
+                {
+                    if let startTime:String = class_.startTime
+                    {
+                        if startTime.isEmpty
+                        {
+                            if let index = copy.classes.firstIndex(of: class_) {
+                                copy.classes.remove(at: index)
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if let index = copy.classes.firstIndex(of: class_) {
+                            copy.classes.remove(at: index)
+                        }
+                    }
+                }
+            }
+
+            if (copy.classes.count > 0)
+            {
+                newDepartment.courses.append(copy)
+            }
+        }
+        return newDepartment
     }
 
     func showActivity()
@@ -89,6 +128,10 @@ class CoursesViewController: UIViewController
             {
                 if let startTime: String = class_.startTime, let endTime: String = class_.endTime
                 {
+                    if startTime.isEmpty || endTime.isEmpty
+                    {
+                        continue
+                    }
                     let start24Time = CourseData.convert12To24(timeStr: startTime)
                     let end24Time = CourseData.convert12To24(timeStr: endTime)
 

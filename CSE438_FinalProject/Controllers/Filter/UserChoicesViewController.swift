@@ -14,6 +14,7 @@ class UserChoicesViewController: UIViewController
 
     private var selectedDepartment = UserChoicesViewController.availableDepartments[0]
     @IBOutlet weak var departmentTableView: UITableView!
+    @IBOutlet weak var filterOutSelfStudySwitch: UISwitch!
 
     override func viewDidLoad()
     {
@@ -33,8 +34,11 @@ class UserChoicesViewController: UIViewController
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             courseViewController.selectedDepartment = self.selectedDepartment
+            courseViewController.filterOutSelfStudy = self.filterOutSelfStudySwitch.isOn
         }
     }
+
+
 }
 
 extension UserChoicesViewController: UITableViewDataSource, UITableViewDelegate

@@ -14,7 +14,7 @@ public let finalExamType = ["No final", "No Final", "Default - none", "Paper/Pro
 struct Department: Decodable
 {
     let department: String!
-    let courses: [CourseData]
+    var courses: [CourseData]
 }
 
 struct CourseData: Decodable
@@ -23,7 +23,7 @@ struct CourseData: Decodable
     let courseTag: String!
     let units: String!
     let description: String?
-    let classes: [Class]
+    var classes: [Class]
 
     /// Converts 1:24 PM to 13:24 https://stackoverflow.com/questions/29321947/xcode-swift-am-pm-time-to-24-hour-format
     public static func convert12To24(timeStr: String) -> String?
@@ -82,8 +82,13 @@ struct CourseData: Decodable
     }
 }
 
-struct Class: Decodable
+struct Class: Decodable, Equatable
 {
+    static func == (lhs: Class, rhs: Class) -> Bool
+    {
+        return lhs.sec == rhs.sec
+    }
+
     let sec: String!
     let days: [String]
     let startTime: String?
