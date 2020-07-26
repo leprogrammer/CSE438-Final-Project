@@ -43,11 +43,11 @@ class GetData
     }
     
     /// For now simply uses the JSON object we have to populate the @CourseData
-    public static func getCourses(completion: @escaping (Result<Department>) -> Void)
+    public static func getCourses(department: String, completion: @escaping (Result<Department>) -> Void)
     {
 
         /// Tries to get the search URL and produces an error if url cannot be created
-        guard let departmentURL = coursesURL(for: "COMPUTER SCIENCE AND ENGINEERING-E81") else
+        guard let departmentURL = coursesURL(for: department) else
         {
             completion(Result.error(Error.unknownAPIResponse))
             return

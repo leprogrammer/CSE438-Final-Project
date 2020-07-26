@@ -15,9 +15,12 @@ class CoursesViewController: UIViewController
     @IBOutlet weak var coursesCollectionView: UICollectionView!
     @IBOutlet weak var generateScheduleBtn: UIButton!
 
+    public static let segueIdentifier: String = "CoursesViewController"
+
     let activityIndicator = UIActivityIndicatorView(style: .large)
 
-    var selectedDepartment: Department?
+    var loadedDepartment: Department?
+    var selectedDepartment: String?
     var selectedCourses: [Int: CourseData] = [:]
     var numberOfCourses = 0
 
@@ -33,26 +36,29 @@ class CoursesViewController: UIViewController
         coursesCollectionView.register(CoursesCollectionViewCell.nib(), forCellWithReuseIdentifier: CoursesCollectionViewCell.identifier)
         coursesCollectionView.delegate = self
         coursesCollectionView.dataSource = self
-
         getDepartment()
         enableDisableGenerateScheduleButton()
     }
 
     func getDepartment()
     {
+        guard let department: String = self.selectedDepartment else
+        {
+            fatalError("Failed to get selected department.")
+        }
         showActivity()
-        GetData.getCourses(){ apiResults in
+        GetData.getCourses(department: department, completion: { apiResults in
             switch apiResults {
             case .error(let error) :
                 print("Error Searching: \(error)")
                 return
             case .results(let results):
-                self.selectedDepartment = results
+                self.loadedDepartment = results
                 self.coursesCollectionView.reloadData()
                 self.coursesCollectionView.layoutIfNeeded()
             }
             self.stopActivity()
-        }
+        })
     }
 
     func showActivity()
@@ -139,7 +145,7 @@ class CoursesViewController: UIViewController
                 fatalError("The selected cell is not being displayed by the table")
             }
             
-            courseDetailViewController.selectedCourseData = selectedDepartment?.courses[indexPath.item]
+            courseDetailViewController.selectedCourseData = loadedDepartment?.courses[indexPath.item]
         }
         else if (segue.identifier == "GenerateSchedules")
         {
@@ -160,7 +166,7 @@ extension CoursesViewController: CoursesCollectionViewCellDelegate
 {
     func addCourse(index: Int)
     {
-        guard let department : Department = self.selectedDepartment else
+        guard let department : Department = self.loadedDepartment else
         {
             fatalError("Failed to obtain department to add course")
         }
@@ -204,7 +210,7 @@ extension CoursesViewController: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         // Need to specify actual items
-        return self.selectedDepartment?.courses.count ?? 0
+        return self.loadedDepartment?.courses.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
@@ -216,7 +222,7 @@ extension CoursesViewController: UICollectionViewDataSource
         }
 
         // If I can get the department then I know there's courses in them
-        if let department : Department = self.selectedDepartment
+        if let department : Department = self.loadedDepartment
         {
             cell.configure(course: department.courses[indexPath.row], index: indexPath.row)
             cell.setAddOrRemoveBtn(courseSelected: self.selectedCourses.keys.contains(indexPath.row))
