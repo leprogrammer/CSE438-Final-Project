@@ -74,52 +74,6 @@ class CoursesViewController: UIViewController
         (selectedCourses.count != 0) ? (generateScheduleBtn.backgroundColor = UIColor.blue) : (generateScheduleBtn.backgroundColor = UIColor.black)
     }
 
-        //MARK: Course generation
-    /// Converts 1:24 PM to 13:24 https://stackoverflow.com/questions/29321947/xcode-swift-am-pm-time-to-24-hour-format
-    func convert12To24(timeStr: String) -> String?
-    {
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
-        dateFormatter.dateFormat = "h:mm a"
-
-        var date = dateFormatter.date(from: timeStr)
-
-        if date == nil
-        {
-            dateFormatter.dateFormat = "h:mma"
-            date = dateFormatter.date(from: timeStr)
-        }
-
-        if date == nil { return nil}
-
-        dateFormatter.dateFormat = "HH:mm"
-
-        // returning nil above if date is nil
-        let time24 = dateFormatter.string(from: date!)
-        return time24
-    }
-
-    func convert24HourStringToInt(timeStr: String)-> Int?
-    {
-        let parsed = timeStr.replacingOccurrences(of: ":", with: "")
-        return Int(parsed) ?? nil
-    }
-
-    func convertDaysOfWeekToBool(days: [String])-> [Bool]
-    {
-        var boolOfWeeks = [false, false, false, false, false, false, false]
-        for day in days
-        {
-            if let loc: Int = daysOfWeek.firstIndex(of: day)
-            {
-                boolOfWeeks[loc] = true
-            }
-        }
-
-        return boolOfWeeks
-    }
-
     func generateCourses() -> [Course]
     {
         var courses: [Course] = []
@@ -129,26 +83,26 @@ class CoursesViewController: UIViewController
             {
                 if let startTime: String = class_.startTime, let endTime: String = class_.endTime
                 {
-                    let start24Time = convert12To24(timeStr: startTime)
-                    let end24Time = convert12To24(timeStr: endTime)
+                    let start24Time = CourseData.convert12To24(timeStr: startTime)
+                    let end24Time = CourseData.convert12To24(timeStr: endTime)
 
                     if (start24Time != nil && end24Time != nil)
                     {
                         // I know the strings aren't nil since i'm checking
-                        guard let startTimeInt = convert24HourStringToInt(timeStr: start24Time!) else
+                        guard let startTimeInt = CourseData.convert24HourStringToInt(timeStr: start24Time!) else
                         {
                             fatalError("Failed to convert start24Time: \(start24Time ?? "nil") to int.")
                         }
-                        guard let endTimeInt = convert24HourStringToInt(timeStr: end24Time!) else
+                        guard let endTimeInt = CourseData.convert24HourStringToInt(timeStr: end24Time!) else
                         {
                             fatalError("Failed to convert end24Time: \(end24Time ?? "nil") to int.")
                         }
 
                         if (class_.days.count > 0 )
                         {
-                            let classDays = convertDaysOfWeekToBool(days: class_.days)
-
-                            courses.append(Course(name: courseData.courseName, section: class_.sec, prof: class_.instructor ?? "", startTime: startTimeInt, endTime: endTimeInt, mondayClass: classDays[0], tuesdayClass: classDays[1], wednesdayClass: classDays[2], thursdayClass: classDays[3], fridayClass: classDays[4], saturdayClass: classDays[5], sundayClass: classDays[6]))
+                            let classDays = CourseData.convertDaysOfWeekToBool(days: class_.days)
+                            let startDate = CourseData.getDate(date: class_.startDate)
+                            courses.append(Course(name: courseData.courseName, section: class_.sec, prof: class_.instructor ?? "", startTime: startTimeInt, endTime: endTimeInt, startDate: startDate, mondayClass: classDays[0], tuesdayClass: classDays[1], wednesdayClass: classDays[2], thursdayClass: classDays[3], fridayClass: classDays[4], saturdayClass: classDays[5], sundayClass: classDays[6]))
                         }
 
                     }

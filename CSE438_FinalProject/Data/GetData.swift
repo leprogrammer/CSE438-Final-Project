@@ -23,6 +23,16 @@ class GetData
     {
         // Set up API instance
     }
+
+    /**
+     Creates URL for user
+     */
+    private func coursesURL(for department:String, page:Int) -> URL?
+    {
+
+        let urlString = "https://raw.githubusercontent.com/hsswx7/wustlCourses/master/\(department)"
+        return URL(string:urlString)
+    }
     
     /// For now simply uses the JSON object we have to populate the @CourseData
     public static func getCourses(completion: @escaping (Result<Department>) -> Void)

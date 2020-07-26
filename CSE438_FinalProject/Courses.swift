@@ -14,6 +14,7 @@ struct Course {
     let prof: String
     let startTime: Int //convert to 24 hour time
     let endTime: Int //convert to 24 hour time
+    let startDate: Date
     let mondayClass: Bool
     let tuesdayClass: Bool
     let wednesdayClass: Bool
