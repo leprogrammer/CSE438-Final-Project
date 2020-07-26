@@ -13,14 +13,17 @@ class ClassCollectionViewCell: UICollectionViewCell
 
 
     static let identifier: String = "ClassCollectionViewCell"
+    var cellClass: Class?
 
     @IBOutlet weak var daysOfWeekLabel: UILabel!
     @IBOutlet weak var secLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var instructorLabel: UILabel!
     @IBOutlet weak var finalExamLabel: UILabel!
+
+
     override func awakeFromNib()
     {
         super.awakeFromNib()
@@ -34,6 +37,7 @@ class ClassCollectionViewCell: UICollectionViewCell
 
     func configure(c: Class)
     {
+        cellClass = c
         secLabel.text = "Sec: " + c.sec
         if c.days.count == 0
         {
@@ -70,7 +74,16 @@ class ClassCollectionViewCell: UICollectionViewCell
         dateLabel.text = "Start: " + c.startDate + " End: " + c.endDate
 
         
-        location.text = "Location: " + (c.location ?? "")
+        locationButton.setTitle((c.location ?? ""), for: .normal)
+        locationButton.isUserInteractionEnabled = false
+        if let locationLink = c.locationRef
+        {
+            if !locationLink.isEmpty
+            {
+                locationButton.isUserInteractionEnabled = true
+                locationButton.setTitleColor(.blue, for: .normal)
+            }
+        }
 
         instructorLabel.text = "Instructor: " + (c.instructor ?? "")
 
@@ -92,5 +105,22 @@ class ClassCollectionViewCell: UICollectionViewCell
     }
 
 
+    @IBAction func locationClicked(_ sender: Any)
+    {
+        guard let c = self.cellClass else
+        {
+            fatalError("Cell class is nil")
+        }
 
+        if let locationLink = c.locationRef
+        {
+            if !locationLink.isEmpty
+            {
+                if let url = URL(string: locationLink) {
+                    UIApplication.shared.open(url)
+                }
+            }
+        }
+
+    }
 }

@@ -48,12 +48,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpJ-rH-Wec">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Fyv-Cv-3Oi">
                                 <rect key="frame" x="0.0" y="90" width="395" height="25"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmD-HB-PFG">
+                                        <rect key="frame" x="0.0" y="0.0" width="74.5" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkW-bS-we6">
+                                        <rect key="frame" x="79.5" y="0.0" width="315.5" height="25"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <state key="normal">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="locationClicked:" destination="Biw-ka-wUe" eventType="touchUpInside" id="F5h-jl-bsF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xg-rC-AdF">
                                 <rect key="frame" x="0.0" y="120" width="395" height="25"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -83,7 +98,7 @@
                 <outlet property="daysOfWeekLabel" destination="a2a-P8-GOK" id="ViF-mL-6ZC"/>
                 <outlet property="finalExamLabel" destination="lYU-ry-CVq" id="G8E-Q2-uxq"/>
                 <outlet property="instructorLabel" destination="0Xg-rC-AdF" id="t1s-o5-BwY"/>
-                <outlet property="location" destination="bpJ-rH-Wec" id="zZF-dU-s3i"/>
+                <outlet property="locationButton" destination="gkW-bS-we6" id="SBQ-kg-Mxp"/>
                 <outlet property="secLabel" destination="VhS-sT-ktN" id="yZ4-Tl-sEN"/>
                 <outlet property="timeLabel" destination="PtK-dr-IAG" id="XHl-aH-0h5"/>
             </connections>
