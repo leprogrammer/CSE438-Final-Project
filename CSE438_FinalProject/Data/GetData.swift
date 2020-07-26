@@ -24,13 +24,21 @@ class GetData
         // Set up API instance
     }
 
+    enum Error: Swift.Error
+    {
+        case unknownAPIResponse
+        case generic
+    }
+
     /**
      Creates URL for user
      */
-    private func coursesURL(for department:String, page:Int) -> URL?
+    public static func coursesURL(for department:String) -> URL?
     {
-
-        let urlString = "https://raw.githubusercontent.com/hsswx7/wustlCourses/master/\(department)"
+        guard let escapedTerm = department.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics) else {
+            return nil
+        }
+        let urlString = "https://raw.githubusercontent.com/hsswx7/wustlCourses/master/\(escapedTerm).json"
         return URL(string:urlString)
     }
     
@@ -38,22 +46,55 @@ class GetData
     public static func getCourses(completion: @escaping (Result<Department>) -> Void)
     {
 
-        let url = Bundle.main.url(forResource: "classes", withExtension: "json")!
-        do {
-            let jsonData = try Data(contentsOf: url)
-
-            // Used
-            // https://www.youtube.com/watch?v=YY3bTxgxWss
-            let apiResult = try JSONDecoder().decode(Department.self, from: jsonData)
-
-            DispatchQueue.main.async {
-                completion(Result.results(apiResult))
-            }
-        }
-        catch
+        /// Tries to get the search URL and produces an error if url cannot be created
+        guard let departmentURL = coursesURL(for: "COMPUTER SCIENCE AND ENGINEERING-E81") else
         {
-            completion(Result.error(error))
+            completion(Result.error(Error.unknownAPIResponse))
             return
         }
+
+        /// Creates and initializes a URLRequest with the given URL and cache policy.
+        let request = URLRequest(url: departmentURL)
+
+        // Creating a task to retrieve data
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error
+            {
+                DispatchQueue.main.async {
+                    completion(Result.error(error))
+                }
+                return
+            }
+
+            guard
+                /// I know I will get a HTTPURLResponse back
+                /// URLResponse: Whenever you make an HTTP request, the URLResponse object you get back is actually an instance of the `HTTPURLResponse` class.
+                let _ = response as? HTTPURLResponse,
+                /// Settings the data
+                let data = data
+                // Return error if response and data cant be set
+                else {
+                    DispatchQueue.main.async {
+                        completion(Result.error(Error.unknownAPIResponse))
+                    }
+                    return
+                }
+
+            do
+            {
+                // Used
+                // https://www.youtube.com/watch?v=YY3bTxgxWss
+                let apiResult = try JSONDecoder().decode(Department.self, from: data)
+
+                DispatchQueue.main.async {
+                    completion(Result.results(apiResult))
+                }
+            }
+            catch
+            {
+                completion(Result.error(error))
+                return
+            }
+        }.resume()
     }
 }
