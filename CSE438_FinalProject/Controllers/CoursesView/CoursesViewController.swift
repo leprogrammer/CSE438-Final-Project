@@ -101,8 +101,11 @@ class CoursesViewController: UIViewController
                         if (class_.days.count > 0 )
                         {
                             let classDays = CourseData.convertDaysOfWeekToBool(days: class_.days)
+
                             let startDate = CourseData.getDate(date: class_.startDate)
-                            courses.append(Course(name: courseData.courseName, section: class_.sec, prof: class_.instructor ?? "", startTime: startTimeInt, endTime: endTimeInt, startDate: startDate, mondayClass: classDays[0], tuesdayClass: classDays[1], wednesdayClass: classDays[2], thursdayClass: classDays[3], fridayClass: classDays[4], saturdayClass: classDays[5], sundayClass: classDays[6]))
+                            let endDate = CourseData.getDate(date: class_.endDate)
+
+                            courses.append(Course(name: courseData.courseName, section: class_.sec, prof: class_.instructor ?? "", startTime: startTimeInt, endTime: endTimeInt, startDate: startDate, endDate: endDate, mondayClass: classDays[0], tuesdayClass: classDays[1], wednesdayClass: classDays[2], thursdayClass: classDays[3], fridayClass: classDays[4], saturdayClass: classDays[5], sundayClass: classDays[6]))
                         }
 
                     }
