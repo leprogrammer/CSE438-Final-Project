@@ -79,18 +79,25 @@ class CoursesViewController: UIViewController
 
             if (filteredCourse.classes.count > 0)
             {
+                //Remove the courses that take place on the day the user doesn't want to go to class
                 var copy2 = filteredCourse
 
-                for restriction in self.restrictions
-                {
-                    if restriction.type == 1
-                    {
-                        for class_ in filteredCourse.classes
-                        {
+                let daysRestricted = restrictions.filter{$0.type == 1}
 
+                for class_ in filteredCourse.classes
+                {
+                    for day in daysRestricted
+                    {
+                        if class_.days.contains(day.dayOfWeek)
+                        {
+                            if let index = copy2.classes.firstIndex(of: class_) {
+                                copy2.classes.remove(at: index)
+                            }
                         }
                     }
                 }
+
+                // remove the courses that 
 
                 if (copy2.classes.count > 0)
                 {
