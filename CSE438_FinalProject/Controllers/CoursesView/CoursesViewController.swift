@@ -133,24 +133,19 @@ class CoursesViewController: UIViewController
                                 }
                             }
 
-                            if let endTimeStr: String = class_.endTime
+                            for restriction in restrictingClassesBeforeAndAfter
                             {
-                                if let endDate = CourseData.getDate(timeStr: endTimeStr)
+                                if class_.days.contains(restriction.dayOfWeek)
                                 {
-                                    for restriction in restrictingClassesBeforeAndAfter
+                                    if startDate < restriction.startTime! || startDate > restriction.endTime!
                                     {
-                                        if class_.days.contains(restriction.dayOfWeek)
-                                        {
-                                            if startDate < restriction.startTime! || startDate > restriction.endTime!
-                                            {
-                                                if let index = copiedCourses.classes.firstIndex(of: class_) {
-                                                    copiedCourses.classes.remove(at: index)
-                                                }
-                                            }
+                                        if let index = copiedCourses.classes.firstIndex(of: class_) {
+                                            copiedCourses.classes.remove(at: index)
                                         }
                                     }
                                 }
                             }
+
                         }
                     }
                 }
