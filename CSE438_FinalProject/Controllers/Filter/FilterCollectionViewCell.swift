@@ -194,25 +194,14 @@ class FilterCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         }
         else if decision == 4
         {
-            type.backgroundColor = UIColor(hue: 0.0528, saturation: 0.81, brightness: 0.81, alpha: 1.0) /* #d15f27 */
+            type.backgroundColor = UIColor(hue: 0.1222, saturation: 0.91, brightness: 0.97, alpha: 1.0) /* #f8be15 */
             type.textColor = .white
             startTimeTextBox.isHidden = false
-            startTimeTextBox.placeholder = "From"
+            startTimeTextBox.placeholder = "Before"
             helperLabel.isHidden = false
             helperLabel.text = "and"
             endTimeTextBox.isHidden = false
-            endTimeTextBox.placeholder = "To"
-        }
-        else if decision == 5
-        {
-            type.backgroundColor = UIColor(hue: 0.1222, saturation: 0.91, brightness: 0.97, alpha: 1.0) /* #f8be15 */
-            type.textColor = .black
-            startTimeTextBox.isHidden = false
-            startTimeTextBox.placeholder = "From"
-            helperLabel.isHidden = false
-            helperLabel.text = "and"
-            endTimeTextBox.isHidden = false
-            endTimeTextBox.placeholder = "To"
+            endTimeTextBox.placeholder = "After"
         }
         else
         {
