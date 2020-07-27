@@ -8,6 +8,15 @@
 
 import UIKit
 
+struct Restriction {
+    let dayOfWeek: String
+    var type: Int = 0
+    var startTime: Int = 0
+    var endTime: Int = 0
+}
+
+let restrictionType = ["No Restriction", "No Class All Day", "No Class Before", "No Class After", "No Class Between"]
+
 class UserChoicesViewController: UIViewController
 {
     public static var availableDepartments = ["BIOMEDICAL ENGINEERING-E62", "COMPUTER SCIENCE AND ENGINEERING-E81", "ELECTRICAL AND SYSTEMS ENGINEERING-E35", "GENERAL ENGINEERING-E60", "MECHANICAL ENGINEERING & MATERIALS SCIENCE-E37"]
@@ -15,12 +24,26 @@ class UserChoicesViewController: UIViewController
     private var selectedDepartment = UserChoicesViewController.availableDepartments[0]
     @IBOutlet weak var departmentTableView: UITableView!
     @IBOutlet weak var filterOutSelfStudySwitch: UISwitch!
+    @IBOutlet weak var userChoiceCollectionView: UICollectionView!
+    
+    let datePicker = UIDatePicker()
+    var restrictions :[Restriction] = []
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+
         departmentTableView.delegate = self
         departmentTableView.dataSource = self
+
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 350, height: 100)
+        userChoiceCollectionView.collectionViewLayout = layout
+        userChoiceCollectionView.register(FilterCollectionViewCell.nib(), forCellWithReuseIdentifier: FilterCollectionViewCell.identifier)
+        userChoiceCollectionView.delegate = self
+        userChoiceCollectionView.dataSource = self
+
+        createRestrictions()
     }
 
     //MARK: Segue
@@ -38,6 +61,13 @@ class UserChoicesViewController: UIViewController
         }
     }
 
+    func createRestrictions()
+    {
+        for day in daysOfWeek
+        {
+            restrictions.append(Restriction(dayOfWeek: day))
+        }
+    }
 
 }
 
@@ -64,4 +94,40 @@ extension UserChoicesViewController: UITableViewDataSource, UITableViewDelegate
         cell.cellSelected(selected: UserChoicesViewController.availableDepartments[indexPath.row] == self.selectedDepartment)
         return cell
     }
+}
+
+extension UserChoicesViewController: UICollectionViewDataSource, UICollectionViewDelegate
+{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
+        // Need to specify actual items
+        return restrictions.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    {
+
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCollectionViewCell.identifier, for: indexPath) as? FilterCollectionViewCell else
+        {
+            fatalError("Failed to create cell for \(FilterCollectionViewCell.identifier)")
+        }
+
+        cell.configure(obj: restrictions[indexPath.row])
+        
+        cell.contentView.layer.cornerRadius = 2.0;
+        cell.contentView.layer.borderWidth = 1.0;
+        cell.contentView.layer.borderColor = UIColor.clear.cgColor;
+        cell.contentView.layer.masksToBounds = true;
+
+        cell.layer.shadowColor = UIColor.black.cgColor;
+        cell.layer.shadowOffset = CGSize(width: 0, height: 2.0);
+        cell.layer.shadowRadius = 2.0;
+        cell.layer.shadowOpacity = 0.5;
+        cell.layer.masksToBounds = false;
+
+        /*cell.layer.shadowPath = [UIBezierPath, bezierPathWithRoundedRect:cell.bounds cornerRadius:cell.contentView.layer.cornerRadius].CGPath*/
+
+        return cell
+    }
+
 }
