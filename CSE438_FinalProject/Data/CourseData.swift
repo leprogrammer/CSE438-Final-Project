@@ -25,10 +25,8 @@ struct CourseData: Decodable
     let description: String?
     var classes: [Class]
 
-    /// Converts 1:24 PM to 13:24 https://stackoverflow.com/questions/29321947/xcode-swift-am-pm-time-to-24-hour-format
-    public static func convert12To24(timeStr: String) -> String?
+    public static func getDate(timeStr: String) -> Date?
     {
-
         let dateFormatter = DateFormatter()
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
         dateFormatter.dateFormat = "h:mm a"
@@ -41,12 +39,22 @@ struct CourseData: Decodable
             date = dateFormatter.date(from: timeStr)
         }
 
-        if date == nil { return nil}
+        return date
 
+    }
+
+    /// Converts 1:24 PM to 13:24 https://stackoverflow.com/questions/29321947/xcode-swift-am-pm-time-to-24-hour-format
+    public static func convert12To24(timeStr: String) -> String?
+    {
+
+        let date: Date = CourseData.getDate(date: timeStr)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
         dateFormatter.dateFormat = "HH:mm"
 
         // returning nil above if date is nil
-        let time24 = dateFormatter.string(from: date!)
+        let time24 = dateFormatter.string(from: date)
         return time24
     }
 

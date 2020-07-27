@@ -15,7 +15,7 @@ struct Restriction {
     var endTime: String = ""
 }
 
-let restrictionType = ["No Restriction", "No Class All Day", "No Class Before", "No Class After", "No Class Between", "Only Classes Between"]
+let restrictionType = ["No Restriction", "No Class All Day", "View Classes Starting Before", "View Classes Starting After", "No Classes Between", "Only Classes Between"]
 
 class UserChoicesViewController: UIViewController
 {

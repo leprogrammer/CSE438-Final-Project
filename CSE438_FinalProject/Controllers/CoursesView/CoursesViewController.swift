@@ -79,10 +79,14 @@ class CoursesViewController: UIViewController
 
             if (filteredCourse.classes.count > 0)
             {
-                //Remove the courses that take place on the day the user doesn't want to go to class
-                var copy2 = filteredCourse
+                var copiedCourses = filteredCourse
 
+                //Remove the courses that take place on the day the user doesn't want to go to class
                 let daysRestricted = restrictions.filter{$0.type == 1}
+                // remove the courses that take before
+                let classBeforeRestriction = restrictions.filter{$0.type == 2 && $0.startTime != ""}
+
+                let restrictingClassesStartingAfter = restrictions.filter{$0.type == 3 && $0.startTime != ""}
 
                 for class_ in filteredCourse.classes
                 {
@@ -90,18 +94,54 @@ class CoursesViewController: UIViewController
                     {
                         if class_.days.contains(day.dayOfWeek)
                         {
-                            if let index = copy2.classes.firstIndex(of: class_) {
-                                copy2.classes.remove(at: index)
+                            if let index = copiedCourses.classes.firstIndex(of: class_) {
+                                copiedCourses.classes.remove(at: index)
+                            }
+                        }
+                    }
+
+                    if let startTimeStr: String = class_.startTime
+                    {
+                        if let startDate = CourseData.getDate(timeStr: startTimeStr)
+                        {
+                            for restriction in classBeforeRestriction
+                            {
+                                if class_.days.contains(restriction.dayOfWeek)
+                                {
+                                    if let restrictionDate = CourseData.getDate(timeStr:  restriction.startTime)
+                                    {
+                                        if startDate >= restrictionDate
+                                        {
+                                            if let index = copiedCourses.classes.firstIndex(of: class_) {
+                                                copiedCourses.classes.remove(at: index)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            for restriction in restrictingClassesStartingAfter
+                            {
+                                if class_.days.contains(restriction.dayOfWeek)
+                                {
+                                    if let restrictionDate = CourseData.getDate(timeStr:  restriction.startTime)
+                                    {
+                                        if startDate <= restrictionDate
+                                        {
+                                            if let index = copiedCourses.classes.firstIndex(of: class_) {
+                                                copiedCourses.classes.remove(at: index)
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
                 }
 
-                // remove the courses that 
-
-                if (copy2.classes.count > 0)
+                if (copiedCourses.classes.count > 0)
                 {
-                    newDepartment.courses.append(copy2)
+                    newDepartment.courses.append(copiedCourses)
                 }
             }
         }
