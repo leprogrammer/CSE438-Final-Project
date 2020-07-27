@@ -84,12 +84,14 @@ class CoursesViewController: UIViewController
                 //Remove the courses that take place on the day the user doesn't want to go to class
                 let daysRestricted = restrictions.filter{$0.type == 1}
                 // remove the courses that take before
-                let classBeforeRestriction = restrictions.filter{$0.type == 2 && $0.startTime != ""}
-
-                let restrictingClassesStartingAfter = restrictions.filter{$0.type == 3 && $0.startTime != ""}
+                let classBeforeRestriction = restrictions.filter{$0.type == 2 && $0.startTime != nil}
+                let restrictingClassesStartingAfter = restrictions.filter{$0.type == 3 && $0.startTime != nil}
+                let restrictingClassesBetween = restrictions.filter{$0.type == 4 && $0.startTime != nil && $0.endTime != nil}
+                let allowClassesBetween = restrictions.filter{$0.type == 5 && $0.startTime != nil && $0.endTime != nil}
 
                 for class_ in filteredCourse.classes
                 {
+                    // Removing classes for which the user doesn't want
                     for day in daysRestricted
                     {
                         if class_.days.contains(day.dayOfWeek)
@@ -103,33 +105,61 @@ class CoursesViewController: UIViewController
                     if let startTimeStr: String = class_.startTime
                     {
                         if let startDate = CourseData.getDate(timeStr: startTimeStr)
-                        {
+                        {   // Removing classes that start after the user restricted time
                             for restriction in classBeforeRestriction
                             {
                                 if class_.days.contains(restriction.dayOfWeek)
                                 {
-                                    if let restrictionDate = CourseData.getDate(timeStr:  restriction.startTime)
+                                    if startDate > restriction.startTime! // I filter out the nil so I can force
                                     {
-                                        if startDate >= restrictionDate
-                                        {
-                                            if let index = copiedCourses.classes.firstIndex(of: class_) {
-                                                copiedCourses.classes.remove(at: index)
-                                            }
+                                        if let index = copiedCourses.classes.firstIndex(of: class_) {
+                                            copiedCourses.classes.remove(at: index)
                                         }
                                     }
                                 }
                             }
 
+                            // Removing classes that start before the user restricted time 
                             for restriction in restrictingClassesStartingAfter
                             {
                                 if class_.days.contains(restriction.dayOfWeek)
                                 {
-                                    if let restrictionDate = CourseData.getDate(timeStr:  restriction.startTime)
+                                    if startDate < restriction.startTime! // I filter out the nil so I can force
                                     {
-                                        if startDate <= restrictionDate
+                                        if let index = copiedCourses.classes.firstIndex(of: class_)
                                         {
-                                            if let index = copiedCourses.classes.firstIndex(of: class_) {
-                                                copiedCourses.classes.remove(at: index)
+                                            copiedCourses.classes.remove(at: index)
+                                        }
+                                    }
+                                }
+                            }
+
+                            if let endTimeStr: String = class_.endTime
+                            {
+                                if let endDate = CourseData.getDate(timeStr: endTimeStr)
+                                {
+                                    for restriction in restrictingClassesBetween
+                                    {
+                                        if class_.days.contains(restriction.dayOfWeek)
+                                        {
+                                            if startDate <= restriction.startTime! || endDate >= restriction.endTime!
+                                            {
+                                                if let index = copiedCourses.classes.firstIndex(of: class_) {
+                                                    copiedCourses.classes.remove(at: index)
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    for restriction in allowClassesBetween
+                                    {
+                                        if class_.days.contains(restriction.dayOfWeek)
+                                        {
+                                            if startDate >= restriction.startTime! && endDate <= restriction.endTime!
+                                            {
+                                                if let index = copiedCourses.classes.firstIndex(of: class_) {
+                                                    copiedCourses.classes.remove(at: index)
+                                                }
                                             }
                                         }
                                     }

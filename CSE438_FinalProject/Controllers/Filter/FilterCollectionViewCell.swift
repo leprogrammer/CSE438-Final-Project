@@ -97,7 +97,8 @@ class FilterCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "h:mm a"
         startTimeTextBox.text = dateFormater.string(from: datePicker.date)
-        changeDataModelBasedOnDecision(decision: self.restriction?.type ?? 0)
+        self.restriction?.startTime = dateFormater.date(from: startTimeTextBox.text ?? "") ?? nil
+        changeDataModelBasedOnDecision(decision: self.restriction?.type ?? 2)
     }
 
     @objc func endDateChanged(datePicker: UIDatePicker)
@@ -105,6 +106,7 @@ class FilterCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "h:mm a"
         endTimeTextBox.text = dateFormater.string(from: datePicker.date)
+        self.restriction?.endTime = dateFormater.date(from: endTimeTextBox.text ?? "") ?? nil
         changeDataModelBasedOnDecision(decision: self.restriction?.type ?? 2)
     }
 
@@ -140,15 +142,10 @@ class FilterCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     {
         if decision == 0 || decision == 1
         {
-            self.restriction?.startTime = ""
-            self.restriction?.endTime = ""
+            self.restriction?.startTime = nil
+            self.restriction?.endTime = nil
             startTimeTextBox.text?.removeAll()
             endTimeTextBox.text?.removeAll()
-        }
-        else
-        {
-            self.restriction?.startTime = startTimeTextBox.text ?? ""
-            self.restriction?.endTime = endTimeTextBox.text ?? ""
         }
 
         if let res = self.restriction

@@ -94,7 +94,7 @@ struct Class: Decodable, Equatable
 {
     static func == (lhs: Class, rhs: Class) -> Bool
     {
-        return lhs.sec == rhs.sec
+        return lhs.sec == rhs.sec && lhs.days == rhs.days
     }
 
     let sec: String!

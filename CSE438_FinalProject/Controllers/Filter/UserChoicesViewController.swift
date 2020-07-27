@@ -11,8 +11,8 @@ import UIKit
 struct Restriction {
     let dayOfWeek: String
     var type: Int = 0
-    var startTime: String = ""
-    var endTime: String = ""
+    var startTime: Date? = nil
+    var endTime: Date? = nil
 }
 
 let restrictionType = ["No Restriction", "No Class All Day", "View Classes Starting Before", "View Classes Starting After", "No Classes Between", "Only Classes Between"]
