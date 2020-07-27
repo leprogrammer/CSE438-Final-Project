@@ -58,6 +58,8 @@ class UserChoicesViewController: UIViewController
             }
             courseViewController.selectedDepartment = self.selectedDepartment
             courseViewController.filterOutSelfStudy = self.filterOutSelfStudySwitch.isOn
+            // Removing the 0th option
+            courseViewController.restrictions = restrictions.filter{$0.type != 0}
         }
     }
 

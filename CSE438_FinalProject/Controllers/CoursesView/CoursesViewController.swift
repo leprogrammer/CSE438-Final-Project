@@ -22,6 +22,7 @@ class CoursesViewController: UIViewController
     var loadedDepartment: Department?
     var selectedDepartment: String?
     var filterOutSelfStudy = true
+    var restrictions :[Restriction] = []
     var selectedCourses: [Int: CourseData] = [:]
     var numberOfCourses = 0
 
@@ -68,33 +69,33 @@ class CoursesViewController: UIViewController
 
         for course in department.courses
         {
-            var copy = course
-            
+            var filteredCourse = course
+
             if filterOutSelfStudy
             {
-                for class_ in course.classes
+                filteredCourse.classes.removeAll()
+                filteredCourse.classes = course.classes.filter{$0.startTime != ""}
+            }
+
+            if (filteredCourse.classes.count > 0)
+            {
+                var copy2 = filteredCourse
+
+                for restriction in self.restrictions
                 {
-                    if let startTime:String = class_.startTime
+                    if restriction.type == 1
                     {
-                        if startTime.isEmpty
+                        for class_ in filteredCourse.classes
                         {
-                            if let index = copy.classes.firstIndex(of: class_) {
-                                copy.classes.remove(at: index)
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if let index = copy.classes.firstIndex(of: class_) {
-                            copy.classes.remove(at: index)
+
                         }
                     }
                 }
-            }
 
-            if (copy.classes.count > 0)
-            {
-                newDepartment.courses.append(copy)
+                if (copy2.classes.count > 0)
+                {
+                    newDepartment.courses.append(copy2)
+                }
             }
         }
         return newDepartment
