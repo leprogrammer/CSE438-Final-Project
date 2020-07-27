@@ -111,13 +111,20 @@ class FilterCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     @objc func startDone()
     {
         self.endEditing(true)
-        changeDataModelBasedOnDecision(decision: self.restriction?.type ?? 2)
+        if let picker: UIDatePicker = startDatePicker
+        {
+            startDateChanged(datePicker: picker)
+        }
     }
 
     @objc func endDone()
     {
         self.endEditing(true)
-        changeDataModelBasedOnDecision(decision: self.restriction?.type ?? 2)
+        if let picker: UIDatePicker = endDatePicker
+        {
+            endDateChanged(datePicker: picker)
+        }
+
     }
 
     func configure(obj: Restriction, index: Int)
