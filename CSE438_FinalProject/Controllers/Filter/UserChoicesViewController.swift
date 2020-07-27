@@ -11,11 +11,11 @@ import UIKit
 struct Restriction {
     let dayOfWeek: String
     var type: Int = 0
-    var startTime: Int = 0
-    var endTime: Int = 0
+    var startTime: String = ""
+    var endTime: String = ""
 }
 
-let restrictionType = ["No Restriction", "No Class All Day", "No Class Before", "No Class After", "No Class Between"]
+let restrictionType = ["No Restriction", "No Class All Day", "No Class Before", "No Class After", "No Class Between", "Only Classes Between"]
 
 class UserChoicesViewController: UIViewController
 {
@@ -65,10 +65,27 @@ class UserChoicesViewController: UIViewController
     {
         for day in daysOfWeek
         {
-            restrictions.append(Restriction(dayOfWeek: day))
+            if day == "Saturday" || day == "Sunday"
+            {
+                restrictions.append(Restriction(dayOfWeek: day, type: 1))
+            }
+            else
+            {
+                restrictions.append(Restriction(dayOfWeek: day))
+            }
+
         }
     }
 
+}
+
+extension UserChoicesViewController: FilterCollectionViewCellDelegate
+{
+    func restrictionUpdated(restriction: Restriction, index: Int) {
+        self.restrictions[index].type = restriction.type
+        self.restrictions[index].startTime = restriction.startTime
+        self.restrictions[index].endTime = restriction.endTime
+    }
 }
 
 extension UserChoicesViewController: UITableViewDataSource, UITableViewDelegate
@@ -112,7 +129,8 @@ extension UserChoicesViewController: UICollectionViewDataSource, UICollectionVie
             fatalError("Failed to create cell for \(FilterCollectionViewCell.identifier)")
         }
 
-        cell.configure(obj: restrictions[indexPath.row])
+        cell.configure(obj: restrictions[indexPath.row], index: indexPath.row)
+        cell.delegate = self
         
         cell.contentView.layer.cornerRadius = 2.0;
         cell.contentView.layer.borderWidth = 1.0;
