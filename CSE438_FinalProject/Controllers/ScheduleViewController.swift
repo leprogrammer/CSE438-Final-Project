@@ -27,8 +27,13 @@ class ScheduleViewController: UIViewController, WeekViewDelegate {
             layer.borderColor = UIColor.black.cgColor
             layer.cornerRadius = 5.0
         }
+        
+        if !schedule.isEmpty {
+            convertCourseToEventData()
+            scheduleWeekView.showDay(withDate: schedule[0].startDate)
+        }
     }
-
+    
     func didLongPressDayView(in weekView: WeekView, atDate date: Date) {
         return
     }
@@ -47,8 +52,26 @@ class ScheduleViewController: UIViewController, WeekViewDelegate {
     private func convertCourseToEventData() {
         var i = 0
         for course in schedule {
-            let startDate = Date()
-            let endDate = Date()
+            
+            var startComponenets = course.startDate.getDayComponents()
+            startComponenets.calendar = Calendar.current
+            startComponenets.year = course.startDate.getDayComponents().year
+            startComponenets.day = course.startDate.getDayComponents().day
+            startComponenets.month = course.startDate.getDayComponents().month
+            startComponenets.hour = Int(course.startTime / 100)
+            startComponenets.minute = course.startTime % 100
+            
+            var endComponenets = course.startDate.getDayComponents()
+            endComponenets.calendar = Calendar.current
+            endComponenets.year = course.startDate.getDayComponents().year
+            endComponenets.day = course.startDate.getDayComponents().day
+            endComponenets.month = course.startDate.getDayComponents().month
+            endComponenets.hour = Int(course.endTime / 100)
+            endComponenets.minute = course.endTime % 100
+            
+            
+            let startDate = startComponenets.date!
+            let endDate = endComponenets.date!
             let temp = EventData(id: i, title: course.name, startDate: startDate, endDate: endDate, color: .blue)
             classes.append(temp)
             

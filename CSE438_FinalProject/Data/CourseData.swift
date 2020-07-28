@@ -25,7 +25,7 @@ struct CourseData: Decodable
     let description: String?
     var classes: [Class]
 
-    public static func getDate(timeStr: String) -> Date?
+    public static func getTimeDate(timeStr: String) -> Date?
     {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
@@ -47,7 +47,7 @@ struct CourseData: Decodable
     public static func convert12To24(timeStr: String) -> String?
     {
 
-        let date: Date = CourseData.getDate(date: timeStr)
+        let date: Date = CourseData.getTimeDate(timeStr: timeStr)!
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
@@ -81,7 +81,7 @@ struct CourseData: Decodable
     public static func getDate(date: String) -> Date
     {
         let inputFormatter = DateFormatter()
-        inputFormatter.dateFormat = "m/dd/yyyy"
+        inputFormatter.dateFormat = "M/dd/yyyy"
         guard let returnDate = inputFormatter.date(from: date) else
         {
             fatalError("Failed to get dateObject from \(date)")

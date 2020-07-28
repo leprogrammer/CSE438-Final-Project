@@ -103,7 +103,7 @@ class CoursesViewController: UIViewController
 
                     if let startTimeStr: String = class_.startTime
                     {
-                        if let startDate = CourseData.getDate(timeStr: startTimeStr)
+                        if let startDate = CourseData.getTimeDate(timeStr: startTimeStr)
                         {   // Removing classes that start after the user restricted time
                             for restriction in classBeforeRestriction
                             {
