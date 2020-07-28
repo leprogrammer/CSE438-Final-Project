@@ -93,6 +93,25 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D2358EE824D0C5A00083A845 /* ScheduleViews */ = {
+			isa = PBXGroup;
+			children = (
+				D2A69DFE24CB6DAD002C70D4 /* ScheduleTableViewCell.swift */,
+				D2D6239B24C65243006D4BB9 /* FavoriteViewController.swift */,
+				D2B2C0E524C7D034005313B3 /* ScheduleViewController.swift */,
+				D2A69DFC24CB6D2E002C70D4 /* GeneratedSchedulesViewController.swift */,
+			);
+			path = ScheduleViews;
+			sourceTree = "<group>";
+		};
+		D2358EE924D0C5C50083A845 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D2B2C0E324C7CEF6005313B3 /* Permutations.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		D2D6238B24C65243006D4BB9 = {
 			isa = PBXGroup;
 			children = (
@@ -116,14 +135,13 @@
 			children = (
 				F87EE05924C927F6002A1F48 /* Controllers */,
 				F87EE05824C927E9002A1F48 /* Data */,
+				D2358EE924D0C5C50083A845 /* Utilities */,
 				D2D6239724C65243006D4BB9 /* AppDelegate.swift */,
 				D2D6239924C65243006D4BB9 /* SceneDelegate.swift */,
 				D2D6239F24C65243006D4BB9 /* Main.storyboard */,
 				D2D623A224C65247006D4BB9 /* Assets.xcassets */,
 				D2D623A424C65247006D4BB9 /* LaunchScreen.storyboard */,
 				D2D623A724C65247006D4BB9 /* Info.plist */,
-				D2B2C0E324C7CEF6005313B3 /* Permutations.swift */,
-				D2B2C0E924C7D1F0005313B3 /* Courses.swift */,
 			);
 			path = CSE438_FinalProject;
 			sourceTree = "<group>";
@@ -157,6 +175,7 @@
 			children = (
 				F87EE05A24C929E4002A1F48 /* CourseData.swift */,
 				F87EE05E24C93396002A1F48 /* GetData.swift */,
+				D2B2C0E924C7D1F0005313B3 /* Courses.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -164,12 +183,9 @@
 		F87EE05924C927F6002A1F48 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D2358EE824D0C5A00083A845 /* ScheduleViews */,
 				F86E92DC24CD16CD00B153F6 /* Filter */,
 				F86E92D624CB49ED00B153F6 /* CoursesView */,
-				D2D6239B24C65243006D4BB9 /* FavoriteViewController.swift */,
-				D2B2C0E524C7D034005313B3 /* ScheduleViewController.swift */,
-				D2A69DFC24CB6D2E002C70D4 /* GeneratedSchedulesViewController.swift */,
-				D2A69DFE24CB6DAD002C70D4 /* ScheduleTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
