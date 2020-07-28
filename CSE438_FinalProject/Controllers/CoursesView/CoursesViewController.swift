@@ -213,7 +213,7 @@ class CoursesViewController: UIViewController
                             let startDate = CourseData.getDate(date: class_.startDate)
                             let endDate = CourseData.getDate(date: class_.endDate)
 
-                            courses.append(Course(name: courseData.courseName, section: class_.sec, prof: class_.instructor ?? "", startTime: startTimeInt, endTime: endTimeInt, startDate: startDate, endDate: endDate, mondayClass: classDays[0], tuesdayClass: classDays[1], wednesdayClass: classDays[2], thursdayClass: classDays[3], fridayClass: classDays[4], saturdayClass: classDays[5], sundayClass: classDays[6]))
+                            courses.append(Course(name: courseData.courseName, section: class_.sec, prof: class_.instructor ?? "", location: class_.location, startTime: startTimeInt, endTime: endTimeInt, startDate: startDate, endDate: endDate, mondayClass: classDays[0], tuesdayClass: classDays[1], wednesdayClass: classDays[2], thursdayClass: classDays[3], fridayClass: classDays[4], saturdayClass: classDays[5], sundayClass: classDays[6]))
                         }
 
                     }

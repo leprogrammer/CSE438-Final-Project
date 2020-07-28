@@ -87,7 +87,7 @@ class ScheduleViewController: UIViewController, WeekViewDelegate {
                     endDate.add(hours: 24)
                 }
                 
-                let temp = EventData(id: i, title: course.name, startDate: startDate, endDate: endDate, color: .blue)
+                let temp = EventData(id: i, title: course.name, startDate: startDate, endDate: endDate, location: course.location ?? "", color: .blue)
                 classes.append(temp)
                 
                 i += 1

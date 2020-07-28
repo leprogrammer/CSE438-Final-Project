@@ -12,6 +12,7 @@ struct Course {
     let name: String
     let section: String?
     let prof: String
+    let location: String?
     let startTime: Int //convert to 24 hour time
     let endTime: Int //convert to 24 hour time
     let startDate: Date
