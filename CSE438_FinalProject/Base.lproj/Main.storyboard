@@ -171,14 +171,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GenerateScheduleCell" id="0s8-2Z-QvJ" customClass="ScheduleTableViewCell" customModule="CSE438_FinalProject" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.333332061767578"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0s8-2Z-QvJ" id="0VB-6W-OHL">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.333332061767578"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udb-Uq-mHb">
-                                            <rect key="frame" x="16" y="10.999999999999998" width="42" height="21.333333333333329"/>
+                                            <rect key="frame" x="16" y="11.000000000000002" width="42" height="21.666666666666671"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -206,7 +206,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MZH-oE-6Va" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3286" y="-7"/>
+            <point key="canvasLocation" x="3286" y="-73"/>
         </scene>
         <!--Schedule View Controller-->
         <scene sceneID="rIH-0M-s0i">
@@ -237,15 +237,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save Schedule"/>
                             </button>
+                            <connections>
+                                <action selector="saveScheduleClicked:" destination="qaE-NP-5lh" id="gbj-tV-bAX"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveScheduleButton" destination="tw7-rs-HCF" id="D8p-ya-r5U"/>
                         <outlet property="scheduleWeekView" destination="JWL-ok-Y8n" id="PfP-OG-cIg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvW-h4-ESt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2049" y="392"/>
+            <point key="canvasLocation" x="1958" y="392"/>
         </scene>
         <!--Favorite Schedules-->
         <scene sceneID="SGv-2c-eyK">
@@ -257,14 +261,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteScheduleCell" id="7lm-aR-X9V" customClass="ScheduleTableViewCell" customModule="CSE438_FinalProject" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.333332061767578"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7lm-aR-X9V" id="KGC-yA-0gP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.333332061767578"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88A-rm-xR4">
-                                            <rect key="frame" x="16" y="10.999999999999998" width="42" height="21.333333333333329"/>
+                                            <rect key="frame" x="16" y="11.000000000000002" width="42" height="21.666666666666671"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>

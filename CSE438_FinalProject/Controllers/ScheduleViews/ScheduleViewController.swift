@@ -14,8 +14,9 @@ class ScheduleViewController: UIViewController, WeekViewDelegate {
     var schedule = [Course]()
     var classes = [EventData]()
     var id = 0
-    var showSaveButton = false
+    var showSaveButton = true
 
+    @IBOutlet weak var saveScheduleButton: UIBarButtonItem!
     @IBOutlet weak var scheduleWeekView: WeekView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,10 @@ class ScheduleViewController: UIViewController, WeekViewDelegate {
             layer.borderWidth = 2.0
             layer.borderColor = UIColor.black.cgColor
             layer.cornerRadius = 5.0
+        }
+        if !showSaveButton {
+            saveScheduleButton.isEnabled = false
+            self.navigationItem.rightBarButtonItem = nil
         }
         
         if !schedule.isEmpty {
@@ -47,6 +52,11 @@ class ScheduleViewController: UIViewController, WeekViewDelegate {
 
 
         scheduleWeekView.loadEvents(withData: classes.isEmpty ? nil : classes)
+    }
+    
+    @IBAction func saveScheduleClicked(_ sender: UIBarButtonItem) {
+        //TODO: Need to check for duplicate schedules and add if there are none
+        //FavoriteViewController.favoriteSchedules.append(schedule)
     }
     
     private func convertCourseToEventData() {

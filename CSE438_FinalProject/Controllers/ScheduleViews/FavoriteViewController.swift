@@ -11,11 +11,30 @@ import UIKit
 class FavoriteViewController: UITableViewController {
 
     let identifier = "FavoriteScheduleCell"
-    var favoriteSchedules = [[Course]]()
+    static var favoriteSchedules = [String: [Course]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let defaults = UserDefaults.standard
+        if let userFavorites = defaults.object(forKey: "UserFavoritesDict") as? [String: [Course]] {
+            FavoriteViewController.favoriteSchedules = userFavorites
+        }
+        navigationItem.leftBarButtonItem = editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            FavoriteViewController.favoriteSchedules.removeValue(forKey: Array(FavoriteViewController.favoriteSchedules.keys)[indexPath.item])
+            let defaults = UserDefaults.standard
+            defaults.set(FavoriteViewController.favoriteSchedules, forKey: "UserFavoritesDict")
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -27,7 +46,7 @@ class FavoriteViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favoriteSchedules.count
+        return FavoriteViewController.favoriteSchedules.count
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -48,7 +67,7 @@ class FavoriteViewController: UITableViewController {
                 fatalError("The selected cell is not being displayed by the table")
             }
             
-            scheduleViewController.schedule = favoriteSchedules[indexPath.row]
+            scheduleViewController.schedule = FavoriteViewController.favoriteSchedules[Array(FavoriteViewController.favoriteSchedules.keys)[indexPath.item]]!
             scheduleViewController.showSaveButton = true
         }
     }
