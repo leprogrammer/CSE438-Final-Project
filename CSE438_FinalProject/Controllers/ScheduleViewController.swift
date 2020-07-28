@@ -53,6 +53,8 @@ class ScheduleViewController: UIViewController, WeekViewDelegate {
         var i = 0
         for course in schedule {
             
+            let classDays = [course.sundayClass, course.mondayClass, course.tuesdayClass, course.wednesdayClass, course.thursdayClass, course.fridayClass, course.saturdayClass]
+            
             var startComponenets = course.startDate.getDayComponents()
             startComponenets.calendar = Calendar.current
             startComponenets.year = course.startDate.getDayComponents().year
@@ -69,13 +71,41 @@ class ScheduleViewController: UIViewController, WeekViewDelegate {
             endComponenets.hour = Int(course.endTime / 100)
             endComponenets.minute = course.endTime % 100
             
+            var startDate = startComponenets.date!
+            var endDate = endComponenets.date!
+            var classCount = 0
+            let totalClassCount = numberOfClasses(course: course)
             
-            let startDate = startComponenets.date!
-            let endDate = endComponenets.date!
-            let temp = EventData(id: i, title: course.name, startDate: startDate, endDate: endDate, color: .blue)
-            classes.append(temp)
-            
-            i += 1
+            while classCount < totalClassCount {
+                if classCount >= 1 {
+                    startDate.add(hours: 24)
+                    endDate.add(hours: 24)
+                }
+                
+                while !classDays[startDate.getDayOfWeek()] {
+                    startDate.add(hours: 24)
+                    endDate.add(hours: 24)
+                }
+                
+                let temp = EventData(id: i, title: course.name, startDate: startDate, endDate: endDate, color: .blue)
+                classes.append(temp)
+                
+                i += 1
+                classCount += 1
+            }
         }
+    }
+    
+    private func numberOfClasses(course: Course) -> Int {
+        var classCount = 0
+        
+        let classDays = [course.sundayClass, course.mondayClass, course.tuesdayClass, course.wednesdayClass, course.thursdayClass, course.fridayClass, course.saturdayClass]
+        for index in 0..<classDays.count {
+            if classDays[index] {
+                classCount += 1
+            }
+        }
+        
+        return classCount
     }
 }
