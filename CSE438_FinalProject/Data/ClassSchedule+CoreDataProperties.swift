@@ -11,7 +11,23 @@ import Foundation
 import CoreData
 
 
-extension ClassSchedule {
+extension ClassSchedule: Equatable {
+    
+    static func == (lhs: ClassSchedule, rhs: ClassSchedule) -> Bool
+    {
+        if let allLhsClasses = lhs.courses?.allObjects as? [CourseDetails],
+            let allRhsClasses = rhs.courses?.allObjects as? [CourseDetails]{
+            
+            let maxIndex = max(allLhsClasses.count, allRhsClasses.count)
+            for index in 0..<maxIndex {
+                if allLhsClasses[index] != allRhsClasses[index] {
+                    return false
+                }
+            }
+        }
+        
+        return true
+    }
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<ClassSchedule> {
         return NSFetchRequest<ClassSchedule>(entityName: "ClassSchedule")
