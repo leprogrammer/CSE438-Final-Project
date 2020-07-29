@@ -32,28 +32,27 @@ class PersistenceHelper
         return persistentContainer.viewContext
     }
 
-    static public func saveSchedule(movie: Schedule)
+    static public func saveSchedule(schedule: [Course])
     {
-        let favMovie = FavMovie(context: PersistenceHelper.context)
-        favMovie.title = movie.title
-        favMovie.image_Url = movie.poster_path ?? ""
+        let savedSchedule = ClassSchedule(context: PersistenceHelper.context)
+        
         PersistenceHelper.saveContext()
     }
 
     /**
      Making this public static... so I can keep the mess here
      */
-    static public func getSavedSchedule() -> [Schedule]
+    static public func getSavedSchedule() -> [[Course]]
     {
-        var favMovies = [FavMovie]()
-        let fetchRequest: NSFetchRequest<Schedule> = FavMovie.fetchRequest()
+        var savedSchedule = [ClassSchedule]()
+        let fetchRequest: NSFetchRequest<ClassSchedule> = ClassSchedule.fetchRequest()
         do {
             let FavMovieItems = try  PersistenceHelper.context.fetch(fetchRequest)
 
-            for favMovie in FavMovieItems
-            {
-                favMovies.append(favMovie)
-            }
+//            for favMovie in FavMovieItems
+//            {
+//                favMovies.append(savedSchedule)
+//            }
 
         }
         catch
@@ -61,25 +60,25 @@ class PersistenceHelper
             os_log("Failed to obtain Favorite Movie items", type: .error)
         }
 
-        return favMovies
+        return [[Course]]() //favMovies
     }
 
-    static public func removeFavMovie(movieTitle: String)
+    static public func removeSavedSchedule(schedule: [Course])
     {
-        let fetchRequest: NSFetchRequest<Schedule> = FavMovie.fetchRequest()
+        let fetchRequest: NSFetchRequest<ClassSchedule> = ClassSchedule.fetchRequest()
         do {
             let FavMovieItems = try  PersistenceHelper.context.fetch(fetchRequest)
 
             for favMovie in FavMovieItems
             {
-                if let title : String = favMovie.title
-                {
-                    if title == movieTitle
-                    {
-                        PersistenceHelper.context.delete(favMovie)
-                        break
-                    }
-                }
+//                if let title : String = favMovie.title
+//                {
+//                    if title == movieTitle
+//                    {
+//                        PersistenceHelper.context.delete(favMovie)
+//                        break
+//                    }
+//                }
             }
             PersistenceHelper.saveContext()
 
@@ -90,22 +89,22 @@ class PersistenceHelper
         }
     }
 
-    static public func movieAlreadyFavorite(movieTitle: String) -> Bool
+    static public func isScheduleAlreadySaved(schedule: [Course]) -> Bool
     {
-        if movieTitle.isEmpty
+        if schedule.isEmpty
         {
             return false
         }
 
-        for favMovie in PersistenceHelper.getSavedMovieData()
+        for savedSchedule in PersistenceHelper.getSavedSchedule()
         {
-            if let title : String = favMovie.title
-            {
-                if title == movieTitle
-                {
-                    return true
-                }
-            }
+//            if let title : String = favMovie.title
+//            {
+//                if title == movieTitle
+//                {
+//                    return true
+//                }
+//            }
         }
         return false
     }
