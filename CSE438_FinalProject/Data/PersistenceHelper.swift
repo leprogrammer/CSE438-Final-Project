@@ -34,20 +34,22 @@ class PersistenceHelper
 
     static public func saveSchedule(schedule: [Course])
     {
-        let savedSchedule = ClassSchedule(context: PersistenceHelper.context)
-        
-        PersistenceHelper.saveContext()
+        if !isScheduleAlreadySaved(schedule: schedule) {
+            let savedSchedule = convertCourseToSchedule(courseArray: schedule)
+            
+            PersistenceHelper.saveContext()
+        }
     }
 
     /**
      Making this public static... so I can keep the mess here
      */
-    static public func getSavedSchedule() -> [[Course]]
+    static public func getSavedSchedules() -> [[Course]]
     {
-        var savedSchedule = [ClassSchedule]()
+        var schedules = [ClassSchedule]()
         let fetchRequest: NSFetchRequest<ClassSchedule> = ClassSchedule.fetchRequest()
         do {
-            let FavMovieItems = try  PersistenceHelper.context.fetch(fetchRequest)
+            let savedSchedules = try PersistenceHelper.context.fetch(fetchRequest)
 
 //            for favMovie in FavMovieItems
 //            {
@@ -67,9 +69,9 @@ class PersistenceHelper
     {
         let fetchRequest: NSFetchRequest<ClassSchedule> = ClassSchedule.fetchRequest()
         do {
-            let FavMovieItems = try  PersistenceHelper.context.fetch(fetchRequest)
+            let savedSchedules = try  PersistenceHelper.context.fetch(fetchRequest)
 
-            for favMovie in FavMovieItems
+            for item in savedSchedules
             {
 //                if let title : String = favMovie.title
 //                {
@@ -96,7 +98,7 @@ class PersistenceHelper
             return false
         }
 
-        for savedSchedule in PersistenceHelper.getSavedSchedule()
+        for savedSchedule in PersistenceHelper.getSavedSchedules()
         {
 //            if let title : String = favMovie.title
 //            {
@@ -152,5 +154,33 @@ class PersistenceHelper
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    static func convertCourseToSchedule(courseArray: [Course]) -> ClassSchedule {
+        
+        let schedule = ClassSchedule(context: PersistenceHelper.context)
+        
+        for item in courseArray {
+            let temp = CourseDetails()
+            temp.name = item.name
+            temp.section = item.section
+            temp.prof = item.prof
+            temp.location = item.location
+            temp.startTime = Int32(item.startTime)
+            temp.endTime = Int32(item.endTime)
+            temp.startDate = item.startDate
+            temp.endDate = item.endDate
+            temp.mondayClass = item.mondayClass
+            temp.tuesdayClass = item.tuesdayClass
+            temp.wednesdayClass = item.wednesdayClass
+            temp.thursdayClass = item.thursdayClass
+            temp.fridayClass = item.fridayClass
+            temp.saturdayClass = item.saturdayClass
+            temp.sundayClass = item.sundayClass
+            
+            schedule.addToCourses(temp)
+        }
+        
+        return schedule
     }
 }
