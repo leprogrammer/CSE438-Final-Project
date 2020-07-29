@@ -32,7 +32,7 @@ class PersistenceHelper
         return persistentContainer.viewContext
     }
 
-    static public func saveMovie(movie: Movie)
+    static public func saveSchedule(movie: Schedule)
     {
         let favMovie = FavMovie(context: PersistenceHelper.context)
         favMovie.title = movie.title
@@ -43,10 +43,10 @@ class PersistenceHelper
     /**
      Making this public static... so I can keep the mess here
      */
-    static public func getSavedMovieData() -> [FavMovie]
+    static public func getSavedSchedule() -> [Schedule]
     {
         var favMovies = [FavMovie]()
-        let fetchRequest: NSFetchRequest<FavMovie> = FavMovie.fetchRequest()
+        let fetchRequest: NSFetchRequest<Schedule> = FavMovie.fetchRequest()
         do {
             let FavMovieItems = try  PersistenceHelper.context.fetch(fetchRequest)
 
@@ -66,7 +66,7 @@ class PersistenceHelper
 
     static public func removeFavMovie(movieTitle: String)
     {
-        let fetchRequest: NSFetchRequest<FavMovie> = FavMovie.fetchRequest()
+        let fetchRequest: NSFetchRequest<Schedule> = FavMovie.fetchRequest()
         do {
             let FavMovieItems = try  PersistenceHelper.context.fetch(fetchRequest)
 

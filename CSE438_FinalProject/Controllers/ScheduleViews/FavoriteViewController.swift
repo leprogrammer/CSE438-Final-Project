@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class FavoriteViewController: UITableViewController {
 
     let identifier = "FavoriteScheduleCell"
+    static var schedules: [NSManagedObject] = []
     static var favoriteSchedules = [String: [Course]]()
     
     override func viewDidLoad() {

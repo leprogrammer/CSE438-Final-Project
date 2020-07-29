@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Course" representedClassName=".Course" syncable="YES">
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="endTime" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="fridayClass" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="mondayClass" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="prof" optional="YES" attributeType="String"/>
+        <attribute name="saturdayClass" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="section" optional="YES" attributeType="String"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="startTime" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sundayClass" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="thursdayClass" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="tuesdayClass" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="wednesdayClass" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Schedule" inverseName="courses" inverseEntity="Schedule"/>
+    </entity>
+    <entity name="Schedule" representedClassName="Schedule" syncable="YES">
+        <relationship name="courses" toMany="YES" deletionRule="Nullify" destinationEntity="Course" inverseName="relationship" inverseEntity="Course"/>
+    </entity>
+    <elements>
+        <element name="Course" positionX="-63" positionY="-18" width="128" height="283"/>
+        <element name="Schedule" positionX="-36" positionY="126" width="128" height="58"/>
+    </elements>
+</model>

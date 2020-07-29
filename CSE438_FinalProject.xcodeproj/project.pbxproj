@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E3B2817581EE1E6188EB79A /* Pods_CSE438_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5840BFA945FB7820C397255A /* Pods_CSE438_FinalProject.framework */; };
+		D2374A5224D2175000EE96A3 /* CSE438_FinalProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2374A5024D2175000EE96A3 /* CSE438_FinalProject.xcdatamodeld */; };
 		D2A69DFD24CB6D2E002C70D4 /* GeneratedSchedulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A69DFC24CB6D2E002C70D4 /* GeneratedSchedulesViewController.swift */; };
 		D2A69DFF24CB6DAD002C70D4 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A69DFE24CB6DAD002C70D4 /* ScheduleTableViewCell.swift */; };
 		D2B2C0E424C7CEF6005313B3 /* Permutations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B2C0E324C7CEF6005313B3 /* Permutations.swift */; };
@@ -38,6 +39,7 @@
 		3FED05BD2138E04FEEDF9A5F /* Pods-CSE438_FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSE438_FinalProject.debug.xcconfig"; path = "Target Support Files/Pods-CSE438_FinalProject/Pods-CSE438_FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
 		41F94F2F228B7F462E1CD25B /* Pods-CSE438_FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSE438_FinalProject.release.xcconfig"; path = "Target Support Files/Pods-CSE438_FinalProject/Pods-CSE438_FinalProject.release.xcconfig"; sourceTree = "<group>"; };
 		5840BFA945FB7820C397255A /* Pods_CSE438_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSE438_FinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2374A5124D2175000EE96A3 /* Course.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Course.xcdatamodel; sourceTree = "<group>"; };
 		D2A69DFC24CB6D2E002C70D4 /* GeneratedSchedulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedSchedulesViewController.swift; sourceTree = "<group>"; };
 		D2A69DFE24CB6DAD002C70D4 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		D2B2C0E324C7CEF6005313B3 /* Permutations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permutations.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				D2D623A224C65247006D4BB9 /* Assets.xcassets */,
 				D2D623A424C65247006D4BB9 /* LaunchScreen.storyboard */,
 				D2D623A724C65247006D4BB9 /* Info.plist */,
+				D2374A5024D2175000EE96A3 /* CSE438_FinalProject.xcdatamodeld */,
 			);
 			path = CSE438_FinalProject;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				F86E92E024CD2A3100B153F6 /* DepartmentSelectionViewCell.swift in Sources */,
 				D2A69DFF24CB6DAD002C70D4 /* ScheduleTableViewCell.swift in Sources */,
 				D2D6239E24C65243006D4BB9 /* CoursesViewController.swift in Sources */,
+				D2374A5224D2175000EE96A3 /* CSE438_FinalProject.xcdatamodeld in Sources */,
 				D2D6239C24C65243006D4BB9 /* FavoriteViewController.swift in Sources */,
 				D2D6239824C65243006D4BB9 /* AppDelegate.swift in Sources */,
 				D2B2C0E624C7D034005313B3 /* ScheduleViewController.swift in Sources */,
@@ -528,6 +532,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D2374A5024D2175000EE96A3 /* CSE438_FinalProject.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D2374A5124D2175000EE96A3 /* Course.xcdatamodel */,
+			);
+			currentVersion = D2374A5124D2175000EE96A3 /* Course.xcdatamodel */;
+			path = CSE438_FinalProject.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D2D6238C24C65243006D4BB9 /* Project object */;
 }

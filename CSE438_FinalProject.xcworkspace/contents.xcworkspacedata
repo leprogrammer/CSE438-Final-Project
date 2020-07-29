@@ -2,6 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:CSE438_FinalProject/Data/Schedule+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:CSE438_FinalProject/Data/Schedule+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:CSE438_FinalProject/Data/Course+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:CSE438_FinalProject/Data/Course+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:CSE438_FinalProject.xcodeproj">
    </FileRef>
    <FileRef
