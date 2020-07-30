@@ -9,11 +9,10 @@
 import UIKit
 import CoreData
 
-class FavoriteViewController: UIViewController {
+class FavoriteViewController: UITableViewController {
 
     let identifier = "FavoriteScheduleCell"
     private var favoriteSchedules =  [[Course]]()
-    @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,20 +46,15 @@ class FavoriteViewController: UIViewController {
             }
             
             scheduleViewController.schedule = self.favoriteSchedules[indexPath.row]
-            scheduleViewController.showSaveButton = true
+            scheduleViewController.showSaveButton = false
         }
     }
-}
 
-
-// MARK: Table View Methods
-extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate
-{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.favoriteSchedules.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ScheduleTableViewCell
 
@@ -69,7 +63,7 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate
         return cell
     }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             PersistenceHelper.removeSavedSchedule(schedule: self.favoriteSchedules[indexPath.row])
             self.favoriteSchedules.remove(at: indexPath.row)

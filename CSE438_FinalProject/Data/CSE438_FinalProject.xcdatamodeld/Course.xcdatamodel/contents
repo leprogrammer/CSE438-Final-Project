@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ClassSchedule" representedClassName=".ClassSchedule" syncable="YES">
-        <relationship name="courses" toMany="YES" deletionRule="Nullify" destinationEntity="CourseDetails" inverseName="relationship" inverseEntity="CourseDetails"/>
+        <relationship name="courses" toMany="YES" deletionRule="Cascade" destinationEntity="CourseDetails" inverseName="relationship" inverseEntity="CourseDetails"/>
     </entity>
     <entity name="CourseDetails" representedClassName=".CourseDetails" syncable="YES">
         <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -22,7 +22,7 @@
         <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClassSchedule" inverseName="courses" inverseEntity="ClassSchedule"/>
     </entity>
     <elements>
+        <element name="ClassSchedule" positionX="-388.30859375" positionY="206.86328125" width="128" height="58"/>
         <element name="CourseDetails" positionX="-63" positionY="-18" width="128" height="283"/>
-        <element name="ClassSchedule" positionX="-36" positionY="126" width="128" height="58"/>
     </elements>
 </model>

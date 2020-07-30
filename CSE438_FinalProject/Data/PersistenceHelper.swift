@@ -58,15 +58,20 @@ class PersistenceHelper
     static public func removeSavedSchedule(schedule: [Course])
     {
         let convertedSchedule = convertCourseToSchedule(courseArray: schedule)
+        PersistenceHelper.context.delete(convertedSchedule)
+        
         let fetchRequest: NSFetchRequest<ClassSchedule> = ClassSchedule.fetchRequest()
         do {
-            let savedSchedules = try  PersistenceHelper.context.fetch(fetchRequest)
+            let savedSchedules = try PersistenceHelper.context.fetch(fetchRequest)
             
             for item in savedSchedules
             {
+                //PersistenceHelper.context.delete(item)
                 if item == convertedSchedule
                 {
                     PersistenceHelper.context.delete(item)
+                    PersistenceHelper.saveContext()
+                    let temp = try  PersistenceHelper.context.fetch(fetchRequest)
                     break
                 }
                 
@@ -87,6 +92,7 @@ class PersistenceHelper
             return false
         }
         let convertedSchedule = convertCourseToSchedule(courseArray: schedule)
+        PersistenceHelper.context.delete(convertedSchedule)
         let fetchRequest: NSFetchRequest<ClassSchedule> = ClassSchedule.fetchRequest()
         do {
             let savedSchedules = try PersistenceHelper.context.fetch(fetchRequest)
@@ -189,8 +195,30 @@ class PersistenceHelper
             temp.sundayClass = item.sundayClass
             
             schedule.addToCourses(temp)
+            temp.relationship = schedule
         }
         
         return schedule
+    }
+    
+    static func convertCourseToClassDetails(item: Course) -> CourseDetails {
+        let temp = CourseDetails(context: PersistenceHelper.context)
+        temp.name = item.name
+        temp.section = item.section
+        temp.prof = item.prof
+        temp.location = item.location
+        temp.startTime = Int32(item.startTime)
+        temp.endTime = Int32(item.endTime)
+        temp.startDate = item.startDate
+        temp.endDate = item.endDate
+        temp.mondayClass = item.mondayClass
+        temp.tuesdayClass = item.tuesdayClass
+        temp.wednesdayClass = item.wednesdayClass
+        temp.thursdayClass = item.thursdayClass
+        temp.fridayClass = item.fridayClass
+        temp.saturdayClass = item.saturdayClass
+        temp.sundayClass = item.sundayClass
+        
+        return temp
     }
 }
