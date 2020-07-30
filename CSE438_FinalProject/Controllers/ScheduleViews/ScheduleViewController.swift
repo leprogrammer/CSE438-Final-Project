@@ -56,12 +56,6 @@ class ScheduleViewController: UIViewController, WeekViewDelegate {
     }
 
     @IBAction func saveButtonClicked(_ sender: Any) {
-        if PersistenceHelper.isScheduleAlreadySaved(schedule: schedule)
-        {
-            let alert = UIAlertController(title: "Schedule already saved.", message: "", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
         let result = PersistenceHelper.saveSchedule(schedule: schedule)
         if result {
             let alert = UIAlertController(title: "Schedule Saved", message: "You have saved this schedule.", preferredStyle: .alert)
