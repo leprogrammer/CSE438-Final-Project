@@ -29,7 +29,7 @@ class ScheduleViewController: UIViewController, WeekViewDelegate {
             layer.borderColor = UIColor.black.cgColor
             layer.cornerRadius = 5.0
         }
-        if !showSaveButton {
+        if !showSaveButton || PersistenceHelper.isScheduleAlreadySaved(schedule: schedule) {
             saveScheduleButton.isEnabled = false
             self.navigationItem.rightBarButtonItem = nil
         }
@@ -62,7 +62,15 @@ class ScheduleViewController: UIViewController, WeekViewDelegate {
             alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-        PersistenceHelper.saveSchedule(schedule: schedule)
+        let result = PersistenceHelper.saveSchedule(schedule: schedule)
+        if result {
+            let alert = UIAlertController(title: "Schedule Saved", message: "You have saved this schedule.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Close", style: .default, handler: { _ in }))
+            self.present(alert, animated: true, completion: nil)
+            
+            saveScheduleButton.isEnabled = false
+            self.navigationItem.rightBarButtonItem = nil
+        }
     }
 
     private func convertCourseToEventData() {
