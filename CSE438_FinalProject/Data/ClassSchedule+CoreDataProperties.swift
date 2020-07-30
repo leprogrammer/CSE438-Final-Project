@@ -15,6 +15,13 @@ extension ClassSchedule {
     
     static func == (lhs: ClassSchedule, rhs: ClassSchedule) -> Bool
     {
+        if let temp1 = lhs.courses?.allObjects {
+            if let temp2 = rhs.courses?.allObjects {
+                return true
+            }
+        }
+        
+        
         if let allLhsClasses = lhs.courses?.allObjects as? [CourseDetails],
             let allRhsClasses = rhs.courses?.allObjects as? [CourseDetails]{
             

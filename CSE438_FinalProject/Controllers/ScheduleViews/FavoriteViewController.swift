@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  FavoriteViewController.swift
 //  CSE438_FinalProject
 //
 //  Created by Tejas Prasad on 7/20/20.

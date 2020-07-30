@@ -21,13 +21,15 @@ class PersistenceHelper
         return persistentContainer.viewContext
     }
     
-    static public func saveSchedule(schedule: [Course])
+    static public func saveSchedule(schedule: [Course]) -> Bool
     {
         if !isScheduleAlreadySaved(schedule: schedule) {
             _ = convertCourseToSchedule(courseArray: schedule)
             
             PersistenceHelper.saveContext()
+            return true
         }
+        return false
     }
     
     /**
@@ -66,12 +68,10 @@ class PersistenceHelper
             
             for item in savedSchedules
             {
-                //PersistenceHelper.context.delete(item)
-                if item == convertedSchedule
-                {
+                let temp = convertScheduleToCourseArray(schedule: item)
+                if isSameSchedule(lhs: temp, rhs: schedule){
                     PersistenceHelper.context.delete(item)
                     PersistenceHelper.saveContext()
-                    let temp = try  PersistenceHelper.context.fetch(fetchRequest)
                     break
                 }
                 
@@ -99,7 +99,8 @@ class PersistenceHelper
             
             for item in savedSchedules
             {
-                if item == convertedSchedule {
+                let temp = convertScheduleToCourseArray(schedule: item)
+                if isSameSchedule(lhs: temp, rhs: schedule){
                     return true
                 }
             }

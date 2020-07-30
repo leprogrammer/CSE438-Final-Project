@@ -8,7 +8,17 @@
 
 import Foundation
 
-struct Course {
+struct Course: Equatable {
+    static func == (lhs: Course, rhs: Course) -> Bool
+    {
+        return lhs.endDate == rhs.endDate && lhs.endTime == rhs.endTime && lhs.startDate == rhs.startDate
+            && lhs.startTime == rhs.startTime && lhs.location == rhs.location && lhs.prof == rhs.prof
+            && lhs.name == rhs.name && lhs.section == rhs.section
+            && lhs.sundayClass == rhs.sundayClass && lhs.mondayClass == rhs.mondayClass && lhs.tuesdayClass == rhs.tuesdayClass
+            && lhs.wednesdayClass == rhs.wednesdayClass && lhs.thursdayClass == rhs.thursdayClass && lhs.fridayClass == rhs.fridayClass
+            && lhs.saturdayClass == rhs.saturdayClass
+    }
+    
     let name: String
     let section: String?
     let prof: String
@@ -84,4 +94,15 @@ func doesClassConflict(a: Course, b: Course) -> Bool {
     {
         return false //classes are not on same day
     }
+}
+
+func isSameSchedule(lhs: [Course], rhs: [Course]) -> Bool
+{
+    let maxIndex = max(lhs.count, rhs.count)
+    for index in 0..<maxIndex {
+        if lhs[index] != rhs[index] {
+            return false
+        }
+    }
+    return true
 }
