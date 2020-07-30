@@ -13,29 +13,6 @@ import CoreData
 
 extension ClassSchedule {
     
-    static func == (lhs: ClassSchedule, rhs: ClassSchedule) -> Bool
-    {
-        if let temp1 = lhs.courses?.allObjects {
-            if let temp2 = rhs.courses?.allObjects {
-                return true
-            }
-        }
-        
-        
-        if let allLhsClasses = lhs.courses?.allObjects as? [CourseDetails],
-            let allRhsClasses = rhs.courses?.allObjects as? [CourseDetails]{
-            
-            let maxIndex = max(allLhsClasses.count, allRhsClasses.count)
-            for index in 0..<maxIndex {
-                if allLhsClasses[index] != allRhsClasses[index] {
-                    return false
-                }
-            }
-        }
-        
-        return true
-    }
-    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<ClassSchedule> {
         return NSFetchRequest<ClassSchedule>(entityName: "ClassSchedule")
     }

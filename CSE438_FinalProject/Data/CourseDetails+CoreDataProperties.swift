@@ -12,16 +12,6 @@ import CoreData
 
 
 extension CourseDetails {
-
-    static func == (lhs: CourseDetails, rhs: CourseDetails) -> Bool
-    {
-        return lhs.endDate == rhs.endDate && lhs.endTime == rhs.endTime && lhs.startDate == rhs.startDate
-            && lhs.startTime == rhs.startTime && lhs.location == rhs.location && lhs.prof == rhs.prof
-            && lhs.name == rhs.name && lhs.section == rhs.section
-            && lhs.sundayClass == rhs.sundayClass && lhs.mondayClass == rhs.mondayClass && lhs.tuesdayClass == rhs.tuesdayClass
-            && lhs.wednesdayClass == rhs.wednesdayClass && lhs.thursdayClass == rhs.thursdayClass && lhs.fridayClass == rhs.fridayClass
-            && lhs.saturdayClass == rhs.saturdayClass
-    }
     
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CourseDetails> {
         return NSFetchRequest<CourseDetails>(entityName: "CourseDetails")
