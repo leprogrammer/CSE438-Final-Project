@@ -9,46 +9,23 @@
 import UIKit
 import CoreData
 
-class FavoriteViewController: UITableViewController {
+class FavoriteViewController: UIViewController {
 
     let identifier = "FavoriteScheduleCell"
-    static var schedules: [NSManagedObject] = []
-    static var favoriteSchedules = [String: [Course]]()
+    private var favoriteSchedules =  [[Course]]()
+    @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let defaults = UserDefaults.standard
-        if let userFavorites = defaults.object(forKey: "UserFavoritesDict") as? [String: [Course]] {
-            FavoriteViewController.favoriteSchedules = userFavorites
-        }
+        favoriteSchedules = PersistenceHelper.getSavedSchedules();
         navigationItem.leftBarButtonItem = editButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        favoriteSchedules = PersistenceHelper.getSavedSchedules();
         tableView.reloadData()
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            FavoriteViewController.favoriteSchedules.removeValue(forKey: Array(FavoriteViewController.favoriteSchedules.keys)[indexPath.item])
-            let defaults = UserDefaults.standard
-            defaults.set(FavoriteViewController.favoriteSchedules, forKey: "UserFavoritesDict")
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ScheduleTableViewCell
-        
-        cell.scheduleTitle.text = "Schedule #" + String(indexPath.row)
-        
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FavoriteViewController.favoriteSchedules.count
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -69,9 +46,36 @@ class FavoriteViewController: UITableViewController {
                 fatalError("The selected cell is not being displayed by the table")
             }
             
-            scheduleViewController.schedule = FavoriteViewController.favoriteSchedules[Array(FavoriteViewController.favoriteSchedules.keys)[indexPath.item]]!
+            scheduleViewController.schedule = self.favoriteSchedules[indexPath.row]
             scheduleViewController.showSaveButton = true
         }
     }
+}
+
+
+// MARK: Table View Methods
+extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate
+{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.favoriteSchedules.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ScheduleTableViewCell
+
+        cell.scheduleTitle.text = "Schedule #" + String(indexPath.row)
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            PersistenceHelper.removeSavedSchedule(schedule: self.favoriteSchedules[indexPath.row])
+            self.favoriteSchedules.remove(at: indexPath.row)
+            self.tableView.reloadData()
+        }
+    }
+    
 }
 

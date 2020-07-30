@@ -11,7 +11,7 @@ import Foundation
 import CoreData
 
 
-extension ClassSchedule: Equatable {
+extension ClassSchedule {
     
     static func == (lhs: ClassSchedule, rhs: ClassSchedule) -> Bool
     {

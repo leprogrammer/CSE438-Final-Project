@@ -16,7 +16,8 @@ class ScheduleViewController: UIViewController, WeekViewDelegate {
     var id = 0
     var showSaveButton = true
 
-    @IBOutlet weak var saveScheduleButton: UIBarButtonItem!
+ 
+    @IBOutlet weak var saveScheduleButton: UIButton!
     @IBOutlet weak var scheduleWeekView: WeekView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,12 +54,11 @@ class ScheduleViewController: UIViewController, WeekViewDelegate {
 
         scheduleWeekView.loadEvents(withData: classes.isEmpty ? nil : classes)
     }
-    
-    @IBAction func saveScheduleClicked(_ sender: UIBarButtonItem) {
-        //TODO: Need to check for duplicate schedules and add if there are none
-        //FavoriteViewController.favoriteSchedules.append(schedule)
+
+    @IBAction func saveButtonClicked(_ sender: Any) {
+        PersistenceHelper.saveSchedule(schedule: schedule)
     }
-    
+
     private func convertCourseToEventData() {
         var i = 0
         for course in schedule {

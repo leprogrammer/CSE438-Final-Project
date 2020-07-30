@@ -114,7 +114,7 @@ class PersistenceHelper
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
          */
-        let container = NSPersistentContainer(name: "Model")
+        let container = NSPersistentContainer(name: "CSE438_FinalProject")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -171,7 +171,7 @@ class PersistenceHelper
         let schedule = ClassSchedule(context: PersistenceHelper.context)
         
         for item in courseArray {
-            let temp = CourseDetails()
+            let temp = CourseDetails(context: PersistenceHelper.context)
             temp.name = item.name
             temp.section = item.section
             temp.prof = item.prof

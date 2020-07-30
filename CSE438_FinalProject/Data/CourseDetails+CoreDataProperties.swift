@@ -11,7 +11,7 @@ import Foundation
 import CoreData
 
 
-extension CourseDetails: Equatable {
+extension CourseDetails {
 
     static func == (lhs: CourseDetails, rhs: CourseDetails) -> Bool
     {
